@@ -1,0 +1,97 @@
+/* CSS Reset & Base for Presentation */
+body { 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    background-color: #000; 
+    color: #f4f4f5; 
+    margin: 0;
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Presentation Container mô phỏng tỷ lệ khung hình chuẩn chiếu Slide (16:9) */
+.presentation-frame {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 1920px;
+    max-height: 1080px;
+    background-color: #0c0c0e; 
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+.slide { 
+    position: absolute;
+    inset: 0;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    padding: 8rem 10vw; /* Tương đối linh hoạt theo tỷ lệ màn chiếu */
+}
+
+/* Họa tiết nền sang trọng */
+.dot-grid-bg { 
+    position: absolute; inset: 0; z-index: 0; 
+    background-image: radial-gradient(rgba(255,255,255,0.05) 2px, transparent 2px); 
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+
+.ambient-glow-1 {
+    position: absolute;
+    top: -10%; right: -5%;
+    width: 50vw; height: 50vw;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0) 70%);
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.ambient-glow-2 {
+    position: absolute;
+    bottom: -20%; left: -10%;
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Kích thước chữ bài giảng (Maximized) */
+.h1-pres { font-size: 5rem; letter-spacing: -0.03em; line-height: 1.1; font-weight: 700; color: #fff; }
+.h2-pres { font-size: 4rem; letter-spacing: -0.02em; line-height: 1.2; font-weight: 600; color: #fff; }
+.text-pres { font-size: 1.75rem; line-height: 1.6; color: #d4d4d8; font-weight: 400; max-width: 50ch; }
+.text-small-pres { font-size: 1.25rem; line-height: 1.6; color: #a1a1aa; }
+
+/* Khối dữ liệu nẹp trang trí */
+.pres-block {
+    background: rgba(255, 255, 255, 0.02); 
+    border-left: 4px solid #10b981;
+    padding: 2rem 3rem;
+    border-radius: 0 1rem 1rem 0;
+    backdrop-filter: blur(10px);
+}
+
+/* Nav điều hướng trên Desktop */
+.nav-zone { position: absolute; bottom: 2.5rem; justify-content: flex-end; right: 4rem; display: flex; gap: 1rem; z-index: 50; opacity: 0.1; transition: opacity 0.3s; }
+.presentation-frame:hover .nav-zone { opacity: 1; }
+.nav-btn { width: 3.5rem; height: 3.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); color: white; cursor: pointer; transition: all 0.2s; font-size: 1.5rem; }
+.nav-btn:hover { background: rgba(16, 185, 129, 0.8); border-color: transparent; }
+
+/* Khóa nội dung */
+.content-box {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* Slide Transition Animations Engine */
+.slide-transition { opacity: 0; transform: translateY(10px); transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); pointer-events: none; z-index: 1; }
+.slide-active { opacity: 1; transform: translateY(0); pointer-events: auto; z-index: 5; }

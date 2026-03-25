@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sơ Đồ Chữ Ký Số - Pro Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f1f5f9; }
+        .node {
+            position: absolute; background: #ffffff; border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            transition: all 0.2s ease; z-index: 10;
+        }
+        .node:hover {
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            border-color: #94a3b8;
+        }
+        .action-node { border-radius: 8px; border: 1px solid; cursor: pointer; }
+        .action-node:active { transform: translateY(2px); }
+        .wire { fill: none; stroke: #94a3b8; stroke-width: 2.5px; }
+        .panel {
+            position: relative; background: #f8fafc; border-radius: 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.02), 0 20px 25px -5px rgba(0,0,0,0.05);
+        }
+        .panel-title {
+            position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+            background: #fff; padding: 6px 20px; border-radius: 100px; font-size: 0.75rem;
+            font-weight: 800; color: #475569; border: 1px solid #cbd5e1;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); z-index: 20;
+            letter-spacing: 0.05em; text-transform: uppercase;
+        }
+        .custom-input {
+            width: 100%; background-color: #f8fafc; border: 1px solid #e2e8f0;
+            border-radius: 6px; padding: 6px 10px; font-size: 0.75rem; color: #1e293b;
+            outline: none; box-shadow: inset 0 1px 2px rgba(0,0,0,0.02); transition: all 0.2s;
+        }
+        .custom-input:focus {
+            border-color: #3b82f6; box-shadow: inset 0 1px 2px rgba(0,0,0,0.02), 0 0 0 2px rgba(59,130,246,0.2);
+            background-color: #fff;
+        }
+        .tab-btn { cursor: pointer; padding: 10px 24px; font-weight: 700; font-size: 0.85rem; border-radius: 12px 12px 0 0; transition: all 0.2s; }
+        .tab-btn.active { background: #f8fafc; color: #1e293b; border: 1px solid #e2e8f0; border-bottom: 1px solid #f8fafc; margin-bottom: -1px; z-index: 5; }
+        .tab-btn:not(.active) { background: #e2e8f0; color: #64748b; border: 1px solid transparent; }
+        .tab-btn:not(.active):hover { background: #cbd5e1; }
+        .tab-content { display: none; }
+        .tab-content.active { display: flex; }
+    </style>
+</head>
+
+<body class="min-h-screen p-8 text-slate-800 select-none flex flex-col items-center overflow-auto pb-20">
+
+    <div class="text-center mb-8">
+        <h1 class="text-3xl font-extrabold text-slate-800 tracking-tight flex items-center justify-center gap-3">
+            <div class="bg-blue-600 text-white p-2 rounded-xl shadow-lg shadow-blue-200">
+                <i class="fa-solid fa-shield-halved text-xl"></i>
+            </div>
+            MÔ PHỎNG CHỮ KÝ SỐ
+        </h1>
+        <p class="text-slate-500 mt-3 text-sm font-medium">Demo RSA: Tạo khóa, ký điện tử, xác minh chữ ký.</p>
+    </div>
+
+    <svg width="0" height="0" class="absolute">
+        <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+            </marker>
+        </defs>
+    </svg>
+
+    <!-- TABS -->
+    <div class="flex gap-1 mb-0 relative z-10">
+        <div class="tab-btn active" onclick="switchTab('main')">
+            <i class="fa-solid fa-diagram-project mr-1"></i> Sơ Đồ Ký / Xác Thực
+        </div>
+        <div class="tab-btn" onclick="switchTab('keygen')">
+            <i class="fa-solid fa-key mr-1"></i> Tạo Cặp Khóa RSA
+        </div>
+    </div>
+
+    <!-- =============================== -->
+    <!-- TAB 1: SƠ ĐỒ KÝ / XÁC THỰC -->
+    <!-- =============================== -->
+    <div id="tab-main" class="tab-content active flex-col xl:flex-row justify-center items-start gap-12 w-full max-w-[1200px] pt-6 border border-slate-200 bg-slate-50/50 rounded-b-2xl rounded-tr-2xl p-8">
+        <div class="flex flex-col xl:flex-row justify-center items-start gap-12 w-full">
+
+        <!-- PANEL: KÝ -->
+        <div class="panel w-[500px] h-[680px]">
+            <div class="panel-title text-blue-600 border-blue-200 shadow-blue-100"><i class="fa-solid fa-pen-nib mr-1"></i> Quá Trình Ký</div>
+
+            <svg class="absolute inset-0 w-full h-full pointer-events-none z-0">
+                <path d="M 140 130 C 140 160, 140 160, 140 190" class="wire" marker-end="url(#arrow)" />
+                <path d="M 140 240 C 140 270, 140 270, 140 300" class="wire" marker-end="url(#arrow)" />
+                <path d="M 140 380 C 140 415, 250 415, 250 450" class="wire" marker-end="url(#arrow)" />
+                <path d="M 360 390 C 360 420, 250 420, 250 450" class="wire" marker-end="url(#arrow)" />
+                <path d="M 250 500 C 250 530, 250 530, 250 560" class="wire" marker-end="url(#arrow)" />
+            </svg>
+
+            <div class="node" style="left: 50px; top: 40px; width: 180px; height: 90px;">
+                <div class="h-8 rounded-t-[11px] bg-blue-50/80 border-b border-blue-100 flex items-center px-3 gap-2">
+                    <i class="fa-regular fa-file-lines text-blue-500 text-sm"></i>
+                    <span class="text-[11px] font-bold text-slate-600 uppercase">Text Cần Ký</span>
+                </div>
+                <div class="p-2.5">
+                    <input type="text" id="left-text-input" class="custom-input" placeholder="Nhập văn bản..." value="ABCDE">
+                </div>
+            </div>
+
+            <div onclick="animateHashing('left-text-input', 'left-hash-output', this)" class="node action-node bg-indigo-50 border-indigo-200 hover:bg-indigo-100 flex justify-center items-center gap-2 transition-colors"
+                style="left: 50px; top: 190px; width: 180px; height: 50px;">
+                <i class="fa-solid fa-microchip text-indigo-500"></i>
+                <span class="text-sm font-bold text-indigo-700">HÀM BĂM</span>
+            </div>
+
+            <div class="node" style="left: 50px; top: 300px; width: 180px; height: 80px;">
+                <div class="h-8 rounded-t-[11px] bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-2">
+                    <i class="fa-solid fa-fingerprint text-purple-500 text-sm"></i>
+                    <span class="text-[11px] font-bold text-slate-600 uppercase">Bản Băm (Hash)</span>
+                </div>
+                <div class="p-2">
+                    <div id="left-hash-output" class="custom-input bg-slate-50 text-slate-400 text-center italic border-dashed truncate">(Trống)</div>
+                </div>
+            </div>
+
+            <div class="node" style="left: 270px; top: 300px; width: 180px; height: 90px;">
+                <div class="h-8 rounded-t-[11px] bg-purple-50/80 border-b border-purple-100 flex items-center px-3 gap-2">
+                    <i class="fa-solid fa-key text-purple-500 text-sm"></i>
+                    <span class="text-[11px] font-bold text-slate-600 uppercase">Khóa Bí Mật</span>
+                </div>
+                <div class="p-2.5 relative">
+                    <input type="password" id="pri-key-input" class="custom-input pr-8" placeholder="Nhập mã bí mật">
+                    <button onclick="togglePassword('pri-key-input', 'eye-icon')"
+                        class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 focus:outline-none transition-colors" title="Ẩn/hiện khóa">
+                        <i class="fa-solid fa-eye" id="eye-icon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div onclick="doSign()" class="node action-node bg-rose-50 border-rose-200 hover:bg-rose-100 flex justify-center items-center gap-2"
+                style="left: 160px; top: 450px; width: 180px; height: 50px;" id="btn-sign">
+                <i class="fa-solid fa-lock text-rose-500"></i>
+                <span class="text-sm font-bold text-rose-700">KÝ ĐIỆN TỬ</span>
+            </div>
+
+            <div draggable="true" ondragstart="drag(event)" id="drag-signature"
+                class="node bg-amber-50 border-amber-300 border-2 hover:bg-amber-100 hover:-translate-y-1 hover:shadow-lg cursor-grab active:cursor-grabbing transition-all flex flex-col justify-center items-center"
+                style="left: 160px; top: 560px; width: 180px; height: 80px; opacity: 0.3; pointer-events: none;">
+                <div class="w-8 h-8 rounded-full bg-amber-200 text-amber-600 flex justify-center items-center mb-1 shadow-inner">
+                    <i class="fa-solid fa-file-signature text-sm"></i>
+                </div>
+                <span class="text-xs font-bold text-amber-800 uppercase tracking-widest">Chữ Ký Số</span>
+                <span class="text-[9px] text-amber-600 font-medium bg-amber-200/50 px-2 py-0.5 rounded-full mt-1">Kéo thả &rarr;</span>
+            </div>
+        </div>
+
+        <!-- PANEL: XÁC THỰC -->
+        <div class="panel w-[640px] h-[680px]">
+            <div class="panel-title text-emerald-600 border-emerald-200 shadow-emerald-100"><i class="fa-solid fa-check-double mr-1"></i> Quá Trình Xác Thực</div>
+
+            <svg class="absolute inset-0 w-full h-full pointer-events-none z-0">
+                <path d="M 120 130 C 120 160, 120 160, 120 190" class="wire" marker-end="url(#arrow)" />
+                <path d="M 120 240 C 120 270, 120 270, 120 300" class="wire" marker-end="url(#arrow)" />
+                <path d="M 320 130 C 320 160, 420 160, 420 190" class="wire" marker-end="url(#arrow)" />
+                <path d="M 520 130 C 520 160, 420 160, 420 190" class="wire" marker-end="url(#arrow)" />
+                <path d="M 420 240 C 420 270, 420 270, 420 300" class="wire" marker-end="url(#arrow)" />
+                <path d="M 120 380 C 120 415, 280 415, 280 450" class="wire" marker-end="url(#arrow)" />
+                <path d="M 420 380 C 420 415, 280 415, 280 450" class="wire" marker-end="url(#arrow)" />
+            </svg>
+
+            <div class="node" style="left: 30px; top: 40px; width: 180px; height: 90px;">
+                <div class="h-8 rounded-t-[11px] bg-blue-50/80 border-b border-blue-100 flex items-center px-3 gap-2">
+                    <i class="fa-regular fa-file-lines text-blue-500 text-sm"></i>
+                    <span class="text-[11px] font-bold text-slate-600 uppercase">Text Bản Nhận</span>
+                </div>
+                <div class="p-2.5">
+                    <input type="text" id="right-text-input" class="custom-input" placeholder="Nhập văn bản nhận...">
+                </div>
+            </div>
+
+            <div ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)" id="drop-signature"
+                class="node bg-slate-50 border-2 border-dashed border-slate-300 hover:bg-slate-100 hover:border-slate-400 transition-colors flex flex-col justify-center items-center text-slate-400"
+                style="left: 230px; top: 40px; width: 180px; height: 90px;">
+                <i class="fa-solid fa-download text-2xl mb-1 mt-1"></i>
+                <span class="text-xs font-semibold" id="drop-text">Thả "Chữ Ký" vào đây</span>
+            </div>
+
+            <div class="node" style="left: 430px; top: 40px; width: 180px; height: 90px;">
+                <div class="h-8 rounded-t-[11px] bg-emerald-50/80 border-b border-emerald-100 flex items-center px-3 gap-2">
+                    <i class="fa-solid fa-key text-emerald-500 text-sm"></i>
+                    <span class="text-[11px] font-bold text-slate-600 uppercase">Khóa C.Khai</span>
+                </div>
+                <div class="p-2.5">
+                    <input type="text" id="pub-key-input" class="custom-input" placeholder="Khóa công khai">
+                </div>
+            </div>
+
+            <div onclick="animateHashing('right-text-input', 'right-hash-output', this)" class="node action-node bg-indigo-50 border-indigo-200 hover:bg-indigo-100 flex justify-center items-center gap-2 transition-colors"
+                style="left: 30px; top: 190px; width: 180px; height: 50px;">
+                <i class="fa-solid fa-microchip text-indigo-500"></i>
+                <span class="text-sm font-bold text-indigo-700">HÀM BĂM</span>
+            </div>
+
+            <div onclick="doVerify()" id="btn-verify" class="node action-node bg-teal-50 border-teal-200 hover:bg-teal-100 flex justify-center items-center gap-2"
+                style="left: 330px; top: 190px; width: 180px; height: 50px;">
+                <i class="fa-solid fa-unlock-keyhole text-teal-500"></i>
+                <span class="text-sm font-bold text-teal-700">XÁC MINH</span>
+            </div>
+
+            <div class="node" style="left: 30px; top: 300px; width: 180px; height: 80px;">
+                <div class="h-8 rounded-t-[11px] bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-2">
+                    <i class="fa-solid fa-fingerprint text-blue-500 text-sm"></i>
+                    <span class="text-[11px] font-bold text-slate-600 uppercase">Hash Hiện Tại</span>
+                </div>
+                <div class="p-2">
+                    <div id="right-hash-output" class="custom-input bg-slate-50 text-slate-400 text-center italic border-dashed truncate">(Trống)</div>
+                </div>
+            </div>
+
+            <div class="node" style="left: 330px; top: 300px; width: 180px; height: 80px;">
+                <div class="h-8 rounded-t-[11px] bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-2">
+                    <i class="fa-solid fa-file-shield text-teal-500 text-sm"></i>
+                    <span class="text-[11px] font-bold text-slate-600 uppercase">Kết Quả</span>
+                </div>
+                <div class="p-2">
+                    <div id="right-verify-output" class="custom-input bg-slate-50 text-slate-400 text-center italic border-dashed truncate">(Trống)</div>
+                </div>
+            </div>
+
+            <div id="match-result" class="node overflow-hidden bg-white border border-slate-300"
+                style="left: 180px; top: 450px; width: 200px; height: 60px;">
+                <div class="flex items-center justify-center h-full bg-slate-100/80 gap-2">
+                    <i class="fa-solid fa-scale-balanced text-slate-400 text-xl"></i>
+                    <span id="match-text" class="text-base font-extrabold text-slate-500 uppercase tracking-widest leading-none mt-1">KHỚP/KHÔNG</span>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+    <!-- =============================== -->
+    <!-- TAB 2: TẠO CẶP KHÓA RSA -->
+    <!-- =============================== -->
+    <div id="tab-keygen" class="tab-content flex-col items-center gap-6 w-full max-w-[700px] pt-6 border border-slate-200 bg-slate-50/50 rounded-b-2xl rounded-tl-2xl p-8">
+
+        <div class="text-center mb-4">
+            <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-2xl shadow-lg mb-4">
+                <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
+                <span class="font-extrabold text-lg">TẠO CẶP KHÓA RSA-2048</span>
+            </div>
+            <p class="text-slate-500 text-sm">Bấm nút để sinh cặp Private/Public Key mới, hoặc dùng key mặc định.</p>
+        </div>
+
+        <div class="flex gap-3 justify-center mb-4">
+            <button onclick="generateNewKeys()" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition-all active:translate-y-0.5">
+                <i class="fa-solid fa-rotate mr-1"></i> Sinh Cặp Mới
+            </button>
+            <button onclick="loadDefaultKeys()" class="bg-slate-600 hover:bg-slate-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition-all active:translate-y-0.5">
+                <i class="fa-solid fa-database mr-1"></i> Dùng Key Mặc Định
+            </button>
+            <button onclick="applyKeysToFlowchart()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition-all active:translate-y-0.5">
+                <i class="fa-solid fa-arrow-right mr-1"></i> Áp Dụng Vào Sơ Đồ
+            </button>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 w-full">
+            <!-- Private Key -->
+            <div class="bg-white rounded-2xl border border-purple-200 shadow-sm overflow-hidden">
+                <div class="bg-purple-50 border-b border-purple-100 px-4 py-2.5 flex items-center gap-2">
+                    <i class="fa-solid fa-lock text-purple-500"></i>
+                    <span class="font-bold text-purple-800 text-sm uppercase">Private Key (Bí mật)</span>
+                </div>
+                <div class="p-3">
+                    <textarea id="keygen-private" rows="8" class="custom-input font-mono text-[10px] resize-none" placeholder="Private key sẽ hiện ở đây..."></textarea>
+                </div>
+            </div>
+
+            <!-- Public Key -->
+            <div class="bg-white rounded-2xl border border-emerald-200 shadow-sm overflow-hidden">
+                <div class="bg-emerald-50 border-b border-emerald-100 px-4 py-2.5 flex items-center gap-2">
+                    <i class="fa-solid fa-lock-open text-emerald-500"></i>
+                    <span class="font-bold text-emerald-800 text-sm uppercase">Public Key (Công khai)</span>
+                </div>
+                <div class="p-3">
+                    <textarea id="keygen-public" rows="8" class="custom-input font-mono text-[10px] resize-none" placeholder="Public key sẽ hiện ở đây..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div id="keygen-status" class="text-center text-sm font-semibold text-slate-400 mt-2">
+            <i class="fa-solid fa-circle-info mr-1"></i> Chưa tạo khóa nào.
+        </div>
+    </div>
+
+    <script>
+        // ============================
+        // STATE
+        // ============================
+        let currentSignature = null;
+        let currentLeftHash = null;
+        let currentRightHash = null;
+        let currentVerifyHash = null; // hash giải mã từ chữ ký
+        let signatureDropped = false;
+
+        // Auto so sánh 2 hash
+        function autoUpdateMatch() {
+            const matchEl = document.getElementById('match-result');
+            const matchText = document.getElementById('match-text');
+            if (!currentRightHash || !currentVerifyHash) {
+                matchEl.querySelector('div').className = 'flex items-center justify-center h-full bg-slate-100/80 gap-2';
+                matchEl.style.borderColor = '#cbd5e1';
+                matchText.textContent = 'KHỚP/KHÔNG';
+                matchText.className = 'text-base font-extrabold text-slate-500 uppercase tracking-widest leading-none mt-1';
+                return;
+            }
+            if (currentVerifyHash === currentRightHash) {
+                matchEl.querySelector('div').className = 'flex items-center justify-center h-full bg-emerald-100 gap-2';
+                matchEl.style.borderColor = '#059669';
+                matchText.textContent = 'KHỚP ✓';
+                matchText.className = 'text-base font-extrabold text-emerald-700 uppercase tracking-widest leading-none mt-1';
+            } else {
+                matchEl.querySelector('div').className = 'flex items-center justify-center h-full bg-rose-100 gap-2';
+                matchEl.style.borderColor = '#e11d48';
+                matchText.textContent = 'KHÔNG ✗';
+                matchText.className = 'text-base font-extrabold text-rose-700 uppercase tracking-widest leading-none mt-1';
+            }
+        }
+
+        // ============================
+        // TABS
+        // ============================
+        function switchTab(name) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-' + name).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // ============================
+        // API CALLS
+        // ============================
+        async function apiPost(url, data = {}) {
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            return res.json();
+        }
+
+        async function generateHash(message) {
+            const data = await apiPost('/api/hash', { text: message });
+            return data.hash;
+        }
+
+        // ============================
+        // KEY GENERATION TAB
+        // ============================
+        async function generateNewKeys() {
+            const status = document.getElementById('keygen-status');
+            status.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i> Đang sinh khóa RSA-2048...';
+            status.className = 'text-center text-sm font-semibold text-blue-500 mt-2';
+            
+            const data = await apiPost('/api/generate-keys');
+            document.getElementById('keygen-private').value = data.private_key;
+            document.getElementById('keygen-public').value = data.public_key;
+            
+            status.innerHTML = '<i class="fa-solid fa-circle-check mr-1"></i> Đã sinh cặp khóa mới thành công!';
+            status.className = 'text-center text-sm font-semibold text-emerald-600 mt-2';
+        }
+
+        async function loadDefaultKeys() {
+            const status = document.getElementById('keygen-status');
+            const data = await apiPost('/api/default-keys');
+            document.getElementById('keygen-private').value = data.private_key;
+            document.getElementById('keygen-public').value = data.public_key;
+            
+            status.innerHTML = '<i class="fa-solid fa-database mr-1"></i> Đã tải key mặc định từ server.';
+            status.className = 'text-center text-sm font-semibold text-slate-600 mt-2';
+        }
+
+        function applyKeysToFlowchart() {
+            const pri = document.getElementById('keygen-private').value;
+            const pub = document.getElementById('keygen-public').value;
+            if (!pri || !pub) { alert('Chưa có key! Hãy sinh hoặc tải key trước.'); return; }
+            
+            document.getElementById('pri-key-input').value = pri;
+            document.getElementById('pub-key-input').value = pub;
+            
+            // Chuyển sang tab chính
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-main').classList.add('active');
+            document.querySelectorAll('.tab-btn')[0].classList.add('active');
+            
+            const status = document.getElementById('keygen-status');
+            status.innerHTML = '<i class="fa-solid fa-check mr-1"></i> Đã áp dụng key vào sơ đồ!';
+            status.className = 'text-center text-sm font-semibold text-emerald-600 mt-2';
+        }
+
+        // ============================
+        // HASHING ANIMATION
+        // ============================
+        async function animateHashing(textInputId, hashOutputId, btnElement) {
+            const inputEl = document.getElementById(textInputId);
+            const textVal = inputEl.value;
+            const hashOut = document.getElementById(hashOutputId);
+            if (!textVal) return;
+
+            const originalHTML = btnElement.innerHTML;
+            btnElement.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-indigo-500"></i><span class="text-sm font-bold text-indigo-700">ĐANG BĂM...</span>';
+            btnElement.style.pointerEvents = 'none';
+
+            hashOut.classList.remove('text-slate-400', 'italic', 'bg-slate-50', 'border-dashed');
+            hashOut.classList.add('text-indigo-600', 'font-mono', 'border-solid', 'border-indigo-300', 'bg-indigo-50/50');
+            
+            const chars = textVal.split('');
+            const stepTime = 1300 / chars.length;
+
+            const rect = inputEl.getBoundingClientRect();
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `position:absolute; left:${inputEl.offsetLeft}px; top:${inputEl.offsetTop}px; width:${rect.width}px; height:${rect.height}px; background:#fff; border:1px solid #6366f1; border-radius:6px; display:flex; align-items:center; padding:0 10px; overflow:hidden; font-size:0.75rem; z-index:50; box-sizing:border-box;`;
+            chars.forEach(ch => {
+                const s = document.createElement('span');
+                s.textContent = ch;
+                s.style.cssText = 'color:#cbd5e1; transition:color 0.15s;';
+                overlay.appendChild(s);
+            });
+            inputEl.parentElement.style.position = 'relative';
+            inputEl.parentElement.appendChild(overlay);
+            inputEl.style.visibility = 'hidden';
+
+            let currentStr = "";
+            for (let i = 0; i < chars.length; i++) {
+                currentStr += chars[i];
+                overlay.children[i].style.color = '#1e293b';
+                overlay.children[i].style.fontWeight = '700';
+                const hash = await generateHash(currentStr);
+                hashOut.innerText = hash;
+                hashOut.title = hash;
+                await new Promise(r => setTimeout(r, stepTime));
+            }
+
+            overlay.remove();
+            inputEl.style.visibility = '';
+
+            // Lưu hash
+            const finalHash = hashOut.innerText;
+            if (textInputId === 'left-text-input') currentLeftHash = finalHash;
+            if (textInputId === 'right-text-input') {
+                currentRightHash = finalHash;
+                autoUpdateMatch();
+            }
+
+            btnElement.innerHTML = originalHTML;
+            btnElement.style.pointerEvents = 'auto';
+            hashOut.classList.remove('text-indigo-600', 'border-indigo-300', 'bg-indigo-50/50');
+            hashOut.classList.add('text-slate-700', 'bg-white', 'border-slate-300');
+        }
+
+        // ============================
+        // SIGN
+        // ============================
+        async function doSign() {
+            if (!currentLeftHash) { alert('Hãy băm text trước!'); return; }
+            const priKey = document.getElementById('pri-key-input').value;
+            if (!priKey) { alert('Hãy nhập Private Key!'); return; }
+
+            const btn = document.getElementById('btn-sign');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-rose-500"></i><span class="text-sm font-bold text-rose-700">ĐANG KÝ...</span>';
+            btn.style.pointerEvents = 'none';
+
+            try {
+                const data = await apiPost('/api/sign', { hash: currentLeftHash, private_key: priKey });
+                
+                if (data.error) {
+                    alert('Lỗi ký: ' + data.error);
+                } else {
+                    currentSignature = data.signature;
+                    // Mở khóa khối chữ ký
+                    const dragEl = document.getElementById('drag-signature');
+                    dragEl.style.opacity = '1';
+                    dragEl.style.pointerEvents = 'auto';
+                }
+            } catch (e) {
+                alert('Lỗi ký: ' + e.message);
+            }
+
+            btn.innerHTML = '<i class="fa-solid fa-lock text-rose-500"></i><span class="text-sm font-bold text-rose-700">KÝ ĐIỆN TỬ</span>';
+            btn.style.pointerEvents = 'auto';
+        }
+
+        // ============================
+        // VERIFY
+        // ============================
+        async function doVerify() {
+            if (!signatureDropped || !currentSignature) { alert('Hãy thả khối chữ ký vào trước!'); return; }
+            const pubKey = document.getElementById('pub-key-input').value;
+            if (!pubKey) { alert('Hãy nhập Public Key!'); return; }
+
+            const btn = document.getElementById('btn-verify');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-teal-500"></i><span class="text-sm font-bold text-teal-700">ĐANG GIẢI MÃ...</span>';
+            btn.style.pointerEvents = 'none';
+
+            const verifyOut = document.getElementById('right-verify-output');
+            const matchEl = document.getElementById('match-result');
+            const matchText = document.getElementById('match-text');
+
+            try {
+                // Bước 1: Giải mã chữ ký → lấy hash gốc
+                const data = await apiPost('/api/verify', {
+                    signature: currentSignature,
+                    public_key: pubKey
+                });
+                
+                if (data.error) {
+                    verifyOut.innerText = 'Lỗi: ' + data.error;
+                    verifyOut.className = 'custom-input bg-rose-50 text-rose-700 text-center font-bold border-rose-300 truncate';
+                    btn.innerHTML = '<i class="fa-solid fa-unlock-keyhole text-teal-500"></i><span class="text-sm font-bold text-teal-700">XÁC MINH</span>';
+                    btn.style.pointerEvents = 'auto';
+                    return;
+                }
+
+                // Bước 2: Hiện hash giải mã ra ô Kết Quả
+                const extractedHash = data.hash;
+                verifyOut.innerText = extractedHash;
+                verifyOut.title = extractedHash;
+                verifyOut.className = 'custom-input bg-teal-50 text-teal-700 text-center font-mono font-bold border-teal-300 truncate';
+
+                // Bước 3: Lưu + auto so sánh
+                currentVerifyHash = extractedHash;
+                autoUpdateMatch();
+            } catch (e) {
+                verifyOut.innerText = 'Lỗi: ' + e.message;
+                verifyOut.className = 'custom-input bg-rose-50 text-rose-700 text-center font-bold border-rose-300 truncate';
+            }
+
+            btn.innerHTML = '<i class="fa-solid fa-unlock-keyhole text-teal-500"></i><span class="text-sm font-bold text-teal-700">XÁC MINH</span>';
+            btn.style.pointerEvents = 'auto';
+        }
+
+        // ============================
+        // TOGGLE PASSWORD
+        // ============================
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // ============================
+        // DRAG & DROP
+        // ============================
+        function drag(ev) {
+            ev.dataTransfer.setData("text", "signature-data");
+            ev.dataTransfer.effectAllowed = "copy";
+            ev.currentTarget.style.opacity = '0.5';
+        }
+
+        document.getElementById('drag-signature').addEventListener('dragend', function (ev) {
+            ev.currentTarget.style.opacity = '1';
+        });
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+            ev.dataTransfer.dropEffect = "copy";
+            const el = ev.currentTarget;
+            if (!el.classList.contains('dropped')) {
+                el.classList.add('bg-amber-50', 'border-amber-400');
+                el.classList.remove('bg-slate-50', 'border-slate-300', 'text-slate-400');
+                el.style.color = '#d97706';
+            }
+        }
+
+        function dragLeave(ev) {
+            const el = ev.currentTarget;
+            if (!el.classList.contains('dropped')) {
+                el.classList.remove('bg-amber-50', 'border-amber-400');
+                el.classList.add('bg-slate-50', 'border-slate-300', 'text-slate-400');
+                el.style.color = '';
+            }
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            const el = ev.currentTarget;
+            signatureDropped = true;
+            el.classList.remove('border-dashed', 'text-slate-400', 'hover:bg-slate-100');
+            el.classList.add('bg-white', 'border-amber-400', 'border-solid', 'shadow-md', 'dropped');
+            el.style.color = '';
+            el.innerHTML = `
+                <button onclick="removeSignature(event)" class="absolute -top-2 -right-2 bg-white text-rose-500 rounded-full w-6 h-6 flex items-center justify-center border border-rose-200 hover:bg-rose-500 hover:text-white transition-colors z-30 shadow-sm" title="Gỡ chữ ký">
+                    <i class="fa-solid fa-xmark text-xs"></i>
+                </button>
+                <div class="h-8 rounded-t-[10px] bg-amber-50/80 border-b border-amber-100 w-full flex items-center px-3 gap-2 absolute top-0 left-0">
+                    <i class="fa-solid fa-file-signature text-amber-500 text-sm"></i>
+                    <span class="text-[11px] font-bold text-amber-700 uppercase">Chữ Ký Số</span>
+                </div>
+                <div class="mt-8 p-1 w-full text-center text-[11px] font-bold text-emerald-600 bg-emerald-50/50 rounded drop-shadow-sm flex items-center justify-center gap-1 mx-2" style="width: calc(100% - 16px);">
+                    <i class="fa-solid fa-circle-check"></i> <span>Đã Nhận Khối!</span>
+                </div>
+            `;
+        }
+
+        function removeSignature(ev) {
+            ev.stopPropagation();
+            signatureDropped = false;
+            const el = document.getElementById('drop-signature');
+            el.classList.remove('bg-white', 'border-amber-400', 'border-solid', 'shadow-md', 'dropped', 'bg-amber-50');
+            el.classList.add('border-dashed', 'text-slate-400', 'hover:bg-slate-100', 'bg-slate-50', 'border-slate-300');
+            el.innerHTML = `
+                <i class="fa-solid fa-download text-2xl mb-1 mt-1"></i>
+                <span class="text-xs font-semibold" id="drop-text">Thả "Chữ Ký" vào đây</span>
+            `;
+        }
+        // ============================
+        // AUTO RESET khi input thay đổi
+        // ============================
+        document.getElementById('right-text-input').addEventListener('input', function() {
+            currentRightHash = null;
+            document.getElementById('right-hash-output').innerText = '(Trống)';
+            document.getElementById('right-hash-output').className = 'custom-input bg-slate-50 text-slate-400 text-center italic border-dashed truncate';
+            autoUpdateMatch();
+        });
+
+        document.getElementById('left-text-input').addEventListener('input', function() {
+            currentLeftHash = null;
+            document.getElementById('left-hash-output').innerText = '(Trống)';
+            document.getElementById('left-hash-output').className = 'custom-input bg-slate-50 text-slate-400 text-center italic border-dashed truncate';
+            // Khóa lại khối chữ ký
+            currentSignature = null;
+            const dragEl = document.getElementById('drag-signature');
+            dragEl.style.opacity = '0.3';
+            dragEl.style.pointerEvents = 'none';
+        });
+    </script>
+</body>
+
+</html>
