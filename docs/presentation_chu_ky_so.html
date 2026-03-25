@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="vi" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Báo Cáo Bài Tập Lớn - Chữ Ký Số & Bản Quyền</title>
-    
+
     <!-- JS Logic & Framework Configs -->
     <script src="./presentation_core.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- UI Typography & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
+
     <!-- Local Custom Styles -->
     <link rel="stylesheet" href="./presentation_styles.css" />
 </head>
+
 <body>
     <div class="presentation-frame">
         <!-- Background Assets -->
@@ -24,7 +28,8 @@
         <div class="ambient-glow-2"></div>
 
         <!-- Bộ Progress Bar Cố Định Góc Trên -->
-        <div class="absolute top-10 left-[10vw] right-[10vw] max-w-[1400px] mx-auto z-50 flex items-center gap-6 font-mono text-sm tracking-widest opacity-80" id="progress-bar">
+        <div class="absolute top-10 left-[10vw] right-[10vw] max-w-[1400px] mx-auto z-50 flex items-center gap-6 font-mono text-sm tracking-widest opacity-80"
+            id="progress-bar">
             <!-- 01 Vấn Đề (Sáng) -->
             <div class="flex items-center gap-4 text-accent font-bold">
                 <span>01</span>
@@ -54,21 +59,26 @@
              SLIDE 1: TIÊU ĐỀ
         =============================================== -->
         <section class="slide slide-transition" id="slide-1">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 1</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 1</div>
             <div class="content-box flex flex-col items-center justify-center h-full text-center">
                 <!-- Icon băm trung tâm -->
-                <div class="w-32 h-32 rounded-full border border-white/10 bg-white/5 flex items-center justify-center mb-10 opacity-0 reveal-1">
+                <div
+                    class="w-32 h-32 rounded-full border border-white/10 bg-white/5 flex items-center justify-center mb-10 opacity-0 reveal-1">
                     <i class="ph-fill ph-fingerprint text-6xl text-accent"></i>
                 </div>
-                
-                <h1 class="h1-pres leading-[1.1] mb-8 opacity-0 reveal-2 max-w-[1200px] mx-auto text-5xl md:text-6xl font-bold">
+
+                <h1
+                    class="h1-pres leading-[1.1] mb-8 opacity-0 reveal-2 max-w-[1200px] mx-auto text-5xl md:text-6xl font-bold">
                     Giải pháp Chữ Ký Số <br>Bảo vệ & Xác minh Bản quyền <br>Dữ liệu Đa phương tiện
                 </h1>
-                
+
                 <div class="w-24 h-1 bg-accent mx-auto mb-8 opacity-0 reveal-3"></div>
-                
+
                 <div class="opacity-0 reveal-4 text-zinc-400 font-mono tracking-widest text-lg uppercase">
-                    Sinh viên thực hiện: Trần Đăng Linh (B22DCPT142) | Đặng Hồng Phát (B22DCPT202) | Nguyễn Duy Thịnh (B22DCPT266)
+                    Sinh viên thực hiện: Trần Đăng Linh (B22DCPT142) | Đặng Hồng Phát (B22DCPT202) | Nguyễn Duy Thịnh
+                    (B22DCPT266)
                 </div>
             </div>
         </section>
@@ -77,59 +87,78 @@
              SLIDE 2: ĐẶT VẤN ĐỀ PART 1
         =============================================== -->
         <section class="slide slide-transition" id="slide-2">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 2</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 2</div>
             <div class="content-box grid grid-cols-12 gap-16 items-center h-full">
                 <div class="col-span-6 opacity-0 reveal-1">
-                    <h2 class="h2-pres leading-tight mb-8">Vấn đề pháp lý &<br><span class="text-zinc-500">Gian lận điện tử</span></h2>
+                    <h2 class="h2-pres leading-tight mb-8">Vấn đề pháp lý &<br><span class="text-zinc-500">Gian lận điện
+                            tử</span></h2>
                     <ul class="space-y-8 border-l-2 border-accent pl-8 text-2xl text-zinc-300">
-                        <li>Rủi ro lớn nhất không chỉ là mất tệp, mà là bị <b>đánh tráo nội dung</b> (sửa số tiền, thay tên người ký) trong quá trình truyền hoặc chia sẻ.</li>
-                        <li><b>Vấn nạn tin giả:</b> Văn bản giả mạo, thông cáo báo chí ngụy tạo và ảnh chỉnh sửa tinh vi có thể gây hoang mang dư luận.</li>
-                        <li><b>Nhu cầu:</b> Cần một cách để người nhận có thể đối chiếu và xác định văn bản thật sự do cơ quan hoặc tác giả nào phát hành.</li>
+                        <li>Rủi ro lớn nhất không chỉ là mất tệp, mà là bị <b>đánh tráo nội dung</b> (sửa số tiền, thay
+                            tên người ký) trong quá trình truyền hoặc chia sẻ.</li>
+                        <li><b>Vấn nạn tin giả:</b> Văn bản giả mạo, thông cáo báo chí ngụy tạo và ảnh chỉnh sửa tinh vi
+                            có thể gây hoang mang dư luận.</li>
+                        <li><b>Nhu cầu:</b> Cần một cách để người nhận có thể đối chiếu và xác định văn bản thật sự do
+                            cơ quan hoặc tác giả nào phát hành.</li>
                     </ul>
                 </div>
                 <div class="col-span-6 opacity-0 reveal-2 relative h-[400px] flex items-center justify-center">
                     <!-- Hợp đồng gốc -->
-                    <div class="absolute left-0 top-4 w-[280px] bg-zinc-800 p-6 rounded-2xl border border-zinc-600 shadow-2xl rotate-[-5deg] z-10 transition-transform hover:rotate-0 hover:z-30">
+                    <div
+                        class="absolute left-0 top-4 w-[280px] bg-zinc-800 p-6 rounded-2xl border border-zinc-600 shadow-2xl rotate-[-5deg] z-10 transition-transform hover:rotate-0 hover:z-30">
                         <div class="flex justify-between items-center border-b border-zinc-600 pb-4 mb-4">
                             <i class="ph-fill ph-check-circle text-accent text-3xl"></i>
-                            <span class="text-xs font-mono text-accent bg-accent/10 px-2 py-1 rounded border border-accent/20">BẢN GỐC</span>
+                            <span
+                                class="text-xs font-mono text-accent bg-accent/10 px-2 py-1 rounded border border-accent/20">BẢN
+                                GỐC</span>
                         </div>
                         <div class="space-y-3 mb-6">
                             <div class="h-2 bg-zinc-600 rounded w-3/4"></div>
                             <div class="h-2 bg-zinc-600 rounded w-full"></div>
                             <div class="h-2 bg-zinc-600 rounded w-5/6"></div>
                         </div>
-                        <div class="text-center font-mono text-xl text-white my-6 border-y border-zinc-600 py-4 font-bold bg-black/20 rounded">
-                            Lương: <span class="text-accent underline decoration-accent/50 underline-offset-4">5.000$</span>
+                        <div
+                            class="text-center font-mono text-xl text-white my-6 border-y border-zinc-600 py-4 font-bold bg-black/20 rounded">
+                            Lương: <span
+                                class="text-accent underline decoration-accent/50 underline-offset-4">5.000$</span>
                         </div>
                         <div class="flex justify-end pt-2">
-                            <div class="w-12 h-12 bg-zinc-700 rounded-full flex items-center justify-center"><i class="ph-fill ph-signature text-2xl text-zinc-400"></i></div>
+                            <div class="w-12 h-12 bg-zinc-700 rounded-full flex items-center justify-center"><i
+                                    class="ph-fill ph-signature text-2xl text-zinc-400"></i></div>
                         </div>
                     </div>
 
                     <!-- Mũi tên PTS -->
-                    <div class="absolute z-20 bg-zinc-950 p-4 rounded-full border border-rose-500/40 flex flex-col items-center shadow-[0_0_20px_rgba(244,63,94,0.3)] backdrop-blur-md">
+                    <div
+                        class="absolute z-20 bg-zinc-950 p-4 rounded-full border border-rose-500/40 flex flex-col items-center shadow-[0_0_20px_rgba(244,63,94,0.3)] backdrop-blur-md">
                         <i class="ph-bold ph-arrow-right text-3xl text-rose-500 mb-1"></i>
                         <span class="text-[10px] font-mono text-rose-400 tracking-widest font-bold">PTS</span>
                     </div>
 
                     <!-- Hợp đồng Fake -->
-                    <div class="absolute right-0 top-12 w-[280px] bg-[#2A181C] p-6 rounded-2xl border border-rose-500/50 shadow-[0_0_40px_rgba(244,63,94,0.2)] rotate-[5deg] z-10 transition-transform hover:rotate-0 hover:z-30 flex flex-col">
+                    <div
+                        class="absolute right-0 top-12 w-[280px] bg-[#2A181C] p-6 rounded-2xl border border-rose-500/50 shadow-[0_0_40px_rgba(244,63,94,0.2)] rotate-[5deg] z-10 transition-transform hover:rotate-0 hover:z-30 flex flex-col">
                         <div class="flex justify-between items-center border-b border-rose-500/30 pb-4 mb-4">
                             <i class="ph-fill ph-warning-circle text-rose-500 text-3xl animate-pulse"></i>
-                            <span class="text-xs font-mono text-rose-400 bg-rose-500/10 px-2 py-1 rounded border border-rose-500/20">GIẢ MẠO</span>
+                            <span
+                                class="text-xs font-mono text-rose-400 bg-rose-500/10 px-2 py-1 rounded border border-rose-500/20">GIẢ
+                                MẠO</span>
                         </div>
                         <div class="space-y-3 mb-6">
                             <div class="h-2 bg-zinc-600 rounded w-3/4"></div>
                             <div class="h-2 bg-zinc-600 rounded w-full"></div>
                             <div class="h-2 bg-zinc-600 rounded w-5/6"></div>
                         </div>
-                        <div class="text-center font-mono text-3xl text-white my-4 border-y border-rose-500/30 py-4 relative font-bold bg-rose-500/10 rounded">
+                        <div
+                            class="text-center font-mono text-3xl text-white my-4 border-y border-rose-500/30 py-4 relative font-bold bg-rose-500/10 rounded">
                             Lương: <span class="text-rose-500 drop-shadow-[0_0_8px_rgba(244,63,94,0.8)]">9.000$</span>
-                            <i class="ph-fill ph-cursor-click absolute -bottom-4 -right-1 text-2xl text-white drop-shadow-md"></i>
+                            <i
+                                class="ph-fill ph-cursor-click absolute -bottom-4 -right-1 text-2xl text-white drop-shadow-md"></i>
                         </div>
                         <div class="flex justify-end pt-2">
-                            <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center"><i class="ph-fill ph-signature text-2xl text-zinc-500"></i></div>
+                            <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center"><i
+                                    class="ph-fill ph-signature text-2xl text-zinc-500"></i></div>
                         </div>
                     </div>
                 </div>
@@ -140,25 +169,83 @@
              SLIDE 3: ĐẶT VẤN ĐỀ PART 2
         =============================================== -->
         <section class="slide slide-transition" id="slide-3">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 3</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 3</div>
             <div class="content-box flex flex-col items-center justify-center h-full text-center">
-                <div class="badge bg-white/10 text-rose-400 font-mono uppercase tracking-widest px-6 py-3 text-lg rounded-full mb-10 opacity-0 reveal-1 border border-white/20">
+                <div
+                    class="badge bg-white/10 text-rose-400 font-mono uppercase tracking-widest px-6 py-3 text-lg rounded-full mb-8 opacity-0 reveal-1 border border-white/20">
                     Khủng hoảng niềm tin số
                 </div>
-                <h1 class="text-6xl md:text-7xl font-bold text-white leading-tight opacity-0 reveal-2 max-w-[1200px] mb-12">
-                    Kỷ nguyên AI tạo sinh <br><span class="text-zinc-500">& Deepfake</span>
+                <h1
+                    class="text-5xl md:text-6xl font-bold text-white leading-tight opacity-0 reveal-2 max-w-[1200px] mb-8">
+                    Kỷ nguyên AI tạo sinh <br><span class="text-zinc-500">& Sức mạnh Video AI / Voice Cloning</span>
                 </h1>
-                
-                <div class="grid grid-cols-2 gap-8 opacity-0 reveal-3 max-w-[1200px] w-full text-left items-stretch">
-                    <div class="bg-zinc-900/80 p-10 rounded-2xl border border-zinc-700 shadow-xl flex flex-col justify-center">
-                        <i class="ph-fill ph-robot text-5xl text-rose-400 mb-6"></i>
-                        <h4 class="text-3xl font-bold text-white mb-4">Lời nói dối hoàn hảo</h4>
-                        <p class="text-xl text-zinc-400 leading-relaxed">Midjourney, DALL-E và AI Voice khiến ranh giới thật - giả ngày càng mờ. Hình ảnh, giọng nói hay video đều có thể bị tạo hoặc chỉnh sửa rất thuyết phục.</p>
+
+                <!-- Minh họa AI mạnh mẽ sinh nội dung -->
+                <div
+                    class="w-full max-w-[900px] mx-auto mb-10 opacity-0 reveal-3 bg-black/40 border border-zinc-800 rounded-3xl flex items-center justify-center p-6 gap-6 shadow-[0_0_50px_rgba(244,63,94,0.05)] text-left">
+                    <div class="flex flex-col items-center shrink-0">
+                        <div
+                            class="w-16 h-16 bg-[#2A181C] rounded-full flex items-center justify-center text-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.3)] border border-rose-500/50">
+                            <i class="ph-fill ph-robot text-3xl"></i>
+                        </div>
+                        <span
+                            class="text-xs font-mono text-rose-400/80 mt-2 font-bold uppercase tracking-wider">Prompt</span>
                     </div>
-                    <div class="bg-zinc-900/80 p-10 rounded-2xl border-l-4 border-accent shadow-xl flex flex-col justify-center">
-                        <i class="ph-fill ph-shield-check text-5xl text-accent mb-6"></i>
-                        <h4 class="text-3xl font-bold text-white mb-4">Gắn chữ ký số vào siêu dữ liệu</h4>
-                        <p class="text-xl text-zinc-400 leading-relaxed">Giải pháp: tạo chữ ký số và gắn vào siêu dữ liệu của tệp ngay khi phát hành, nhằm xác nhận nguồn gốc và tính toàn vẹn của nội dung.</p>
+
+                    <div class="flex-1 px-4 space-y-3">
+                        <div
+                            class="h-1.5 w-full bg-gradient-to-r from-rose-500/50 via-purple-500/50 to-blue-500/50 rounded-full animate-pulse">
+                        </div>
+                        <div class="h-1.5 w-3/4 bg-gradient-to-r from-rose-500/30 via-purple-500/30 to-blue-500/30 rounded-full animate-pulse"
+                            style="animation-delay: 0.5s"></div>
+                    </div>
+
+                    <div class="flex items-center gap-4 shrink-0">
+                        <!-- Sora Video Fake -->
+                        <div
+                            class="bg-zinc-900 border border-zinc-700 p-4 rounded-2xl flex items-center gap-4 hover:border-purple-500/50 transition-colors">
+                            <i class="ph-fill ph-video-camera text-3xl text-purple-400"></i>
+                            <div>
+                                <p class="text-[10px] text-zinc-500 font-mono uppercase tracking-widest">Sora AI Gen</p>
+                                <p class="text-base font-bold text-white">Video 4K Đời Thực</p>
+                            </div>
+                        </div>
+
+                        <!-- Voice Fake -->
+                        <div
+                            class="bg-zinc-900 border border-zinc-700 p-4 rounded-2xl flex items-center gap-4 hover:border-blue-500/50 transition-colors">
+                            <i class="ph-fill ph-waveform text-3xl text-blue-400 animate-pulse"></i>
+                            <div>
+                                <p class="text-[10px] text-zinc-500 font-mono uppercase tracking-widest">Voice Cloning
+                                </p>
+                                <p class="text-base font-bold text-white">Giọng Tổng Thống</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-8 opacity-0 reveal-4 max-w-[1200px] w-full text-left items-stretch">
+                    <div
+                        class="bg-zinc-900/80 p-8 rounded-2xl border border-zinc-700 shadow-xl flex flex-col justify-center">
+                        <div class="flex items-center gap-4 mb-4 text-rose-400">
+                            <i class="ph-fill ph-mask-happy text-4xl"></i>
+                            <h4 class="text-2xl font-bold text-white">Lời nói dối hoàn hảo</h4>
+                        </div>
+                        <p class="text-lg text-zinc-400 leading-relaxed">Sora AI, ElevenLabs khiến tốc độ sinh tạo
+                            Video/Giọng nói giả mạo chân thực đạt cấp độ giây. Việc dùng mắt thường để đoán định độ tin
+                            cậy của file là bất khả thi.</p>
+                    </div>
+                    <div
+                        class="bg-zinc-900/80 p-8 rounded-2xl border-l-4 border-accent shadow-xl flex flex-col justify-center">
+                        <div class="flex items-center gap-4 mb-4 text-accent">
+                            <i class="ph-fill ph-shield-check text-4xl"></i>
+                            <h4 class="text-2xl font-bold text-white">Xác thực bằng Toán Học</h4>
+                        </div>
+                        <p class="text-lg text-zinc-400 leading-relaxed">Không tin vào mắt mình, chỉ tin vào toán học.
+                            Gắn chữ ký số (Mật mã hóa) vào siêu dữ liệu tệp ngay khi phát hành để khóa chặt gốc gác tác
+                            giả.</p>
                     </div>
                 </div>
             </div>
@@ -168,21 +255,28 @@
              SLIDE 4: MỤC TIÊU ĐỀ TÀI
         =============================================== -->
         <section class="slide slide-transition" id="slide-4">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 4</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 4</div>
             <div class="content-box flex flex-col justify-center h-full max-w-[1200px] mx-auto text-center">
                 <i class="ph-fill ph-target text-7xl text-accent mb-8 opacity-0 reveal-1"></i>
                 <h2 class="h1-pres mb-12 opacity-0 reveal-2">Mục tiêu đề tài</h2>
                 <div class="opacity-0 reveal-3 bg-accent/5 border border-accent/20 p-12 rounded-[2rem]">
                     <div class="flex items-start gap-4 mb-8 text-2xl text-white text-left">
                         <i class="ph-bold ph-check-circle text-accent mt-1 text-3xl shrinks-0"></i>
-                        <p><b>Mục tiêu lý thuyết:</b> Vận dụng hàm băm SHA-256 và thuật toán mật mã bất đối xứng RSA-2048 vào bài toán xác minh nguồn gốc dữ liệu.</p>
+                        <p><b>Mục tiêu lý thuyết:</b> Vận dụng hàm băm SHA-256 và thuật toán mật mã bất đối xứng
+                            RSA-2048 vào bài toán xác minh nguồn gốc dữ liệu.</p>
                     </div>
                     <div class="flex items-start gap-4 text-2xl text-white text-left">
                         <i class="ph-bold ph-check-circle text-accent mt-1 text-3xl shrinks-0"></i>
-                        <p><b>Mục tiêu thực tiễn:</b> Xây dựng ứng dụng mô phỏng "công chứng điện tử" bằng Python, cho phép:<br><br>
-                        <span class="text-zinc-300 ml-4 block">- Tạo cặp khóa định danh cho tác giả.</span>
-                        <span class="text-zinc-300 ml-4 block">- Ký số lên tệp để hỗ trợ xác nhận nguồn gốc và quyền sở hữu.</span>
-                        <span class="text-zinc-300 ml-4 block">- Kiểm tra tính toàn vẹn và phát hiện nội dung bị chỉnh sửa nhanh chóng.</span></p>
+                        <p><b>Mục tiêu thực tiễn:</b> Xây dựng ứng dụng mô phỏng "công chứng điện tử" bằng Python, cho
+                            phép:<br><br>
+                            <span class="text-zinc-300 ml-4 block">- Tạo cặp khóa định danh cho tác giả.</span>
+                            <span class="text-zinc-300 ml-4 block">- Ký số lên tệp để hỗ trợ xác nhận nguồn gốc và quyền
+                                sở hữu.</span>
+                            <span class="text-zinc-300 ml-4 block">- Kiểm tra tính toàn vẹn và phát hiện nội dung bị
+                                chỉnh sửa nhanh chóng.</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -192,26 +286,34 @@
              SLIDE 5: QUY TRÌNH (TÁC GIẢ)
         =============================================== -->
         <section class="slide slide-transition" id="slide-5">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 5</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 5</div>
             <div class="content-box flex flex-col justify-center h-full text-center">
                 <h2 class="h2-pres mb-16 opacity-0 reveal-1">Luồng ký số (Góc nhìn tác giả)</h2>
-                
-                <div class="flex flex-row items-stretch justify-center gap-6 opacity-0 reveal-2 w-full max-w-[1300px] mx-auto">
-                    <div class="flex-[1] bg-zinc-900 border border-zinc-700 p-8 rounded-3xl relative flex flex-col justify-center">
+
+                <div
+                    class="flex flex-row items-stretch justify-center gap-6 opacity-0 reveal-2 w-full max-w-[1300px] mx-auto">
+                    <div
+                        class="flex-[1] bg-zinc-900 border border-zinc-700 p-8 rounded-3xl relative flex flex-col justify-center">
                         <i class="ph-fill ph-user-circle text-6xl text-accent mb-6 mx-auto"></i>
                         <h4 class="text-2xl font-bold text-white mb-4">Tạo cặp khóa</h4>
                         <p class="text-zinc-400 text-lg">Sinh cặp khóa bí mật và khóa công khai</p>
-                        <i class="ph-bold ph-arrow-right text-4xl text-zinc-600 absolute -right-8 top-1/2 -translate-y-1/2 z-10 hidden md:block"></i>
+                        <i
+                            class="ph-bold ph-arrow-right text-4xl text-zinc-600 absolute -right-8 top-1/2 -translate-y-1/2 z-10 hidden md:block"></i>
                     </div>
-                    
-                    <div class="flex-[1] bg-zinc-900 border border-accent/50 p-8 rounded-3xl relative shadow-[0_0_20px_rgba(16,185,129,0.1)] flex flex-col justify-center">
+
+                    <div
+                        class="flex-[1] bg-zinc-900 border border-accent/50 p-8 rounded-3xl relative shadow-[0_0_20px_rgba(16,185,129,0.1)] flex flex-col justify-center">
                         <i class="ph-fill ph-stamp text-6xl text-accent mb-6 mx-auto"></i>
                         <h4 class="text-2xl font-bold text-white mb-4">Ký số</h4>
                         <p class="text-zinc-400 text-lg">Nạp tệp dữ liệu và<br>khóa bí mật vào ứng dụng</p>
-                        <i class="ph-bold ph-arrow-right text-4xl text-zinc-600 absolute -right-8 top-1/2 -translate-y-1/2 z-10 hidden md:block"></i>
+                        <i
+                            class="ph-bold ph-arrow-right text-4xl text-zinc-600 absolute -right-8 top-1/2 -translate-y-1/2 z-10 hidden md:block"></i>
                     </div>
 
-                    <div class="flex-[1.2] bg-gradient-to-br from-accent/20 to-zinc-900 border-2 border-accent p-8 rounded-3xl flex flex-col justify-center">
+                    <div
+                        class="flex-[1.2] bg-gradient-to-br from-accent/20 to-zinc-900 border-2 border-accent p-8 rounded-3xl flex flex-col justify-center">
                         <i class="ph-fill ph-file-dashed text-6xl text-white mb-6 mx-auto"></i>
                         <h4 class="text-2xl font-bold text-white mb-4">Tệp bàn giao</h4>
                         <p class="text-accent text-lg font-bold tracking-wider">TỆP GỐC<br>+<br>FILE CHỮ KÝ SỐ</p>
@@ -224,21 +326,27 @@
              SLIDE 6: QUY TRÌNH (KIỂM DUYỆT)
         =============================================== -->
         <section class="slide slide-transition" id="slide-6">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 6</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 6</div>
             <div class="content-box flex flex-col justify-center h-full text-center">
                 <h2 class="h2-pres mb-16 opacity-0 reveal-1">Luồng xác minh (Góc nhìn người kiểm tra)</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 opacity-0 reveal-2 w-full max-w-[1300px] mx-auto items-stretch">
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 gap-10 opacity-0 reveal-2 w-full max-w-[1300px] mx-auto items-stretch">
                     <div class="bg-zinc-900 border border-zinc-700 p-10 rounded-3xl flex flex-col justify-center">
                         <i class="ph-fill ph-envelope-open text-6xl text-zinc-500 mb-6 mx-auto"></i>
                         <h4 class="text-2xl font-bold text-white mb-4">Nhận tệp cần kiểm tra</h4>
-                        <p class="text-zinc-400 text-lg">Người nhận có một tệp kèm chữ ký số và muốn kiểm tra xem nội dung có bị chỉnh sửa hay không.</p>
+                        <p class="text-zinc-400 text-lg">Người nhận có một tệp kèm chữ ký số và muốn kiểm tra xem nội
+                            dung có bị chỉnh sửa hay không.</p>
                     </div>
 
-                    <div class="bg-zinc-900 border border-blue-400/50 p-10 rounded-3xl relative shadow-[0_0_20px_rgba(96,165,250,0.1)] flex flex-col justify-center">
+                    <div
+                        class="bg-zinc-900 border border-blue-400/50 p-10 rounded-3xl relative shadow-[0_0_20px_rgba(96,165,250,0.1)] flex flex-col justify-center">
                         <i class="ph-fill ph-magnifying-glass text-6xl text-blue-400 mb-6 mx-auto"></i>
                         <h4 class="text-2xl font-bold text-white mb-4 text-blue-400">Đối chiếu trên ứng dụng</h4>
-                        <p class="text-zinc-400 text-lg">Nạp tệp, chữ ký số và khóa công khai của tác giả vào ứng dụng để xác minh.</p>
+                        <p class="text-zinc-400 text-lg">Nạp tệp, chữ ký số và khóa công khai của tác giả vào ứng dụng
+                            để xác minh.</p>
                         <!-- Lines -->
                         <div class="absolute -right-10 top-1/2 h-px w-10 bg-zinc-600 hidden md:block"></div>
                     </div>
@@ -246,11 +354,13 @@
                     <div class="flex flex-col gap-6 justify-center">
                         <div class="bg-accent/10 border border-accent p-8 rounded-2xl flex items-center gap-6">
                             <i class="ph-fill ph-check-circle text-5xl text-accent"></i>
-                            <div class="text-left text-white leading-tight"><b>CHỮ KÝ HỢP LỆ</b><br><span class="text-lg text-zinc-400">Tệp còn nguyên vẹn</span></div>
+                            <div class="text-left text-white leading-tight"><b>CHỮ KÝ HỢP LỆ</b><br><span
+                                    class="text-lg text-zinc-400">Tệp còn nguyên vẹn</span></div>
                         </div>
                         <div class="bg-rose-500/10 border border-rose-500 p-8 rounded-2xl flex items-center gap-6">
                             <i class="ph-fill ph-warning text-5xl text-rose-500"></i>
-                            <div class="text-left text-white leading-tight"><b>CHỮ KÝ KHÔNG HỢP LỆ</b><br><span class="text-lg text-zinc-400">Tệp đã bị chỉnh sửa hoặc sai khóa</span></div>
+                            <div class="text-left text-white leading-tight"><b>CHỮ KÝ KHÔNG HỢP LỆ</b><br><span
+                                    class="text-lg text-zinc-400">Tệp đã bị chỉnh sửa hoặc sai khóa</span></div>
                         </div>
                     </div>
                 </div>
@@ -261,51 +371,75 @@
              SLIDE 7: HÀM BĂM SHA256
         =============================================== -->
         <section class="slide slide-transition" id="slide-7">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 7</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 7</div>
             <div class="content-box grid grid-cols-12 gap-16 items-center h-full max-w-[1400px] mx-auto">
                 <div class="col-span-6 opacity-0 reveal-1">
-                    <h2 class="h2-pres leading-tight mb-8">Lý thuyết 1:<br><span class="text-zinc-500">Hàm băm SHA-256</span></h2>
+                    <h2 class="h2-pres leading-tight mb-8">Lý thuyết 1:<br><span class="text-zinc-500">Hàm băm
+                            SHA-256</span></h2>
                     <ul class="space-y-8 text-2xl text-zinc-300">
-                        <li>Hoạt động như <b>"dấu vân tay số"</b> của tài liệu. Với SHA-256, mã băm thường được biểu diễn bằng 64 ký tự hex.</li>
+                        <li>Hoạt động như <b>"dấu vân tay số"</b> của tài liệu. Với SHA-256, mã băm thường được biểu
+                            diễn bằng 64 ký tự hex.</li>
                         <li><b>Tính một chiều:</b> Không thể khôi phục dữ liệu gốc chỉ từ mã băm.</li>
-                        <li><b>Hiệu ứng tuyết lở:</b> Chỉ cần thay đổi 1 pixel hoặc 1 dấu phẩy, mã băm đầu ra sẽ thay đổi hoàn toàn.</li>
+                        <li><b>Hiệu ứng tuyết lở:</b> Chỉ cần thay đổi 1 pixel hoặc 1 dấu phẩy, mã băm đầu ra sẽ thay
+                            đổi hoàn toàn.</li>
                     </ul>
                 </div>
                 <div class="col-span-6 opacity-0 reveal-2 flex flex-col gap-8 w-full max-w-[600px] justify-self-end">
                     <!-- Đầu vào 1 -->
-                    <div class="bg-zinc-900/80 border border-zinc-700/80 rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden group shadow-xl">
-                        <div class="w-24 h-24 bg-zinc-800 rounded-2xl flex items-center justify-center text-4xl font-bold text-white shadow-inner border border-zinc-700">F<span class="text-zinc-500 font-normal">ox</span></div>
+                    <div
+                        class="bg-zinc-900/80 border border-zinc-700/80 rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden group shadow-xl">
+                        <div
+                            class="w-24 h-24 bg-zinc-800 rounded-2xl flex items-center justify-center text-4xl font-bold text-white shadow-inner border border-zinc-700">
+                            F<span class="text-zinc-500 font-normal">ox</span></div>
                         <i class="ph-bold ph-arrow-right text-3xl text-zinc-600 hidden sm:block"></i>
                         <div class="flex flex-col items-center">
-                            <i class="ph-fill ph-cpu text-5xl text-blue-400 group-hover:rotate-180 transition-transform duration-700 drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]"></i>
-                            <span class="text-[10px] mt-2 font-mono text-blue-400 tracking-widest bg-blue-500/10 px-2 py-1 rounded">SHA256</span>
+                            <i
+                                class="ph-fill ph-cpu text-5xl text-blue-400 group-hover:rotate-180 transition-transform duration-700 drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]"></i>
+                            <span
+                                class="text-[10px] mt-2 font-mono text-blue-400 tracking-widest bg-blue-500/10 px-2 py-1 rounded">SHA256</span>
                         </div>
                         <i class="ph-bold ph-arrow-right text-3xl text-zinc-600 hidden sm:block"></i>
-                        <div class="flex-1 bg-black p-4 rounded-xl border border-blue-500/20 font-mono text-xs sm:text-sm text-blue-300 break-all leading-relaxed shadow-[0_0_20px_rgba(59,130,246,0.05)] text-center sm:text-left">
+                        <div
+                            class="flex-1 bg-black p-4 rounded-xl border border-blue-500/20 font-mono text-xs sm:text-sm text-blue-300 break-all leading-relaxed shadow-[0_0_20px_rgba(59,130,246,0.05)] text-center sm:text-left">
                             <span class="text-blue-500 mr-2">Hash_1</span><br>
                             27518ba96820...<br>...c41219b12
                         </div>
                     </div>
-                    
+
                     <!-- Đầu vào 2 (So sánh) -->
-                    <div class="bg-zinc-900/80 border border-zinc-700/80 rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden group shadow-xl">
-                        <div class="absolute left-0 top-0 bottom-0 w-2 bg-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.5)]"></div>
-                        <div class="w-24 h-24 bg-[#1A1012] border border-rose-500/30 rounded-2xl flex items-center justify-center text-4xl font-bold text-rose-500 shadow-inner group-hover:bg-rose-500/10 transition-colors">f<span class="text-zinc-500 font-normal text-white">ox</span></div>
+                    <div
+                        class="bg-zinc-900/80 border border-zinc-700/80 rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden group shadow-xl">
+                        <div
+                            class="absolute left-0 top-0 bottom-0 w-2 bg-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.5)]">
+                        </div>
+                        <div
+                            class="w-24 h-24 bg-[#1A1012] border border-rose-500/30 rounded-2xl flex items-center justify-center text-4xl font-bold text-rose-500 shadow-inner group-hover:bg-rose-500/10 transition-colors">
+                            f<span class="text-zinc-500 font-normal text-white">ox</span></div>
                         <i class="ph-bold ph-arrow-right text-3xl text-zinc-600 hidden sm:block"></i>
-                         <div class="flex flex-col items-center">
-                            <i class="ph-fill ph-cpu text-5xl text-blue-400 group-hover:rotate-180 transition-transform duration-700 drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]"></i>
-                            <span class="text-[10px] mt-2 font-mono text-blue-400 tracking-widest bg-blue-500/10 px-2 py-1 rounded">SHA256</span>
+                        <div class="flex flex-col items-center">
+                            <i
+                                class="ph-fill ph-cpu text-5xl text-blue-400 group-hover:rotate-180 transition-transform duration-700 drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]"></i>
+                            <span
+                                class="text-[10px] mt-2 font-mono text-blue-400 tracking-widest bg-blue-500/10 px-2 py-1 rounded">SHA256</span>
                         </div>
                         <i class="ph-bold ph-arrow-right text-3xl text-zinc-600 hidden sm:block"></i>
-                        <div class="flex-1 bg-black p-4 rounded-xl border border-rose-500/30 font-mono text-xs sm:text-sm text-rose-300 break-all leading-relaxed shadow-[0_0_20px_rgba(244,63,94,0.1)] text-center sm:text-left relative">
-                            <div class="absolute -top-3 -right-3 bg-rose-500 text-white text-[10px] font-bold px-2 py-1 rounded-full animate-bounce w-max border-2 border-black">KHÁC 100%</div>
+                        <div
+                            class="flex-1 bg-black p-4 rounded-xl border border-rose-500/30 font-mono text-xs sm:text-sm text-rose-300 break-all leading-relaxed shadow-[0_0_20px_rgba(244,63,94,0.1)] text-center sm:text-left relative">
+                            <div
+                                class="absolute -top-3 -right-3 bg-rose-500 text-white text-[10px] font-bold px-2 py-1 rounded-full animate-bounce w-max border-2 border-black">
+                                KHÁC 100%</div>
                             <span class="text-rose-500 mr-2">Hash_2</span><br>
                             d22c95cdca09...<br>...8bb7ca721
                         </div>
                     </div>
-                    
-                    <div class="text-center font-mono text-zinc-400 text-sm italic mt-2 bg-white/5 border border-white/10 py-3 px-4 rounded-xl">
-                        * Chỉ sửa <span class="bg-zinc-800 text-white font-bold px-2 rounded">F</span> thành <span class="bg-rose-900 text-rose-400 font-bold px-2 rounded">f</span>, mã băm biến đổi hoàn toàn.
+
+                    <div
+                        class="text-center font-mono text-zinc-400 text-sm italic mt-2 bg-white/5 border border-white/10 py-3 px-4 rounded-xl">
+                        * Chỉ sửa <span class="bg-zinc-800 text-white font-bold px-2 rounded">F</span> thành <span
+                            class="bg-rose-900 text-rose-400 font-bold px-2 rounded">f</span>, mã băm biến đổi hoàn
+                        toàn.
                     </div>
                 </div>
             </div>
@@ -315,24 +449,65 @@
              SLIDE 8: LÝ THUYẾT RSA
         =============================================== -->
         <section class="slide slide-transition" id="slide-8">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 8</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 8</div>
             <div class="content-box flex flex-col items-center justify-center h-full text-center">
                 <h2 class="h2-pres mb-12 opacity-0 reveal-1">Lý thuyết 2: Thuật toán RSA</h2>
-                
+
                 <div class="max-w-[1200px] w-full grid grid-cols-2 gap-10 opacity-0 reveal-2 items-stretch">
                     <div class="bg-zinc-900/50 p-12 rounded-3xl border border-zinc-700 flex flex-col justify-center">
                         <p class="text-2xl text-zinc-300 mb-8 font-medium">Mật mã cổ điển hoạt động ra sao?</p>
-                        <i class="ph-fill ph-key text-7xl text-zinc-500 mb-6 opacity-50 mx-auto"></i>
-                        <p class="text-xl text-zinc-400 leading-relaxed">Trong hệ đối xứng, cùng một khóa được dùng cho cả mã hóa và giải mã. Khóa này dễ bị lộ nếu phải chia sẻ cho bên nhận.</p>
-                    </div>
-                    
-                    <div class="bg-[#121E19] p-12 rounded-3xl border-2 border-accent flex flex-col justify-center">
-                        <p class="text-2xl text-white mb-8 font-bold uppercase tracking-widest text-accent">CẶP KHÓA RSA</p>
-                        <div class="flex justify-center gap-8 mb-6">
-                            <i class="ph-fill ph-key text-7xl text-rose-500"></i>
-                            <i class="ph-fill ph-key text-7xl text-accent"></i>
+                        
+                        <!-- Minh họa Mật mã cổ điển -->
+                        <div class="flex justify-center items-center gap-4 mb-8">
+                            <div class="w-16 h-16 bg-zinc-800 rounded-xl border border-zinc-600 flex items-center justify-center text-zinc-400 font-bold text-2xl">A</div>
+                            <div class="flex flex-col items-center">
+                                <span class="bg-yellow-500/10 text-yellow-500 px-3 py-1 rounded-full text-xs font-mono font-bold border border-yellow-500/30 mb-2 flex items-center gap-2"><i class="ph-fill ph-key text-base"></i> CHUNG 1 KHÓA</span>
+                                <div class="w-32 h-1 bg-yellow-500/30 rounded-full relative overflow-hidden">
+                                    <div class="absolute top-0 bottom-0 left-0 w-full bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.8)] opacity-50"></div>
+                                </div>
+                            </div>
+                            <div class="w-16 h-16 bg-zinc-800 rounded-xl border border-zinc-600 flex items-center justify-center text-zinc-400 font-bold text-2xl">B</div>
                         </div>
-                        <p class="text-xl text-zinc-300 leading-relaxed">RSA tạo ra một cặp khóa liên kết toán học: <b>khóa bí mật</b> dùng để ký, còn <b>khóa công khai</b> dùng để xác minh chữ ký mà không cần chia sẻ bí mật.</p>
+
+                        <p class="text-xl text-zinc-400 leading-relaxed">Trong hệ đối xứng, cùng một khóa được dùng cho
+                            cả mã hóa và giải mã. Khóa này dễ bị lộ nếu phải chia sẻ cho bên nhận.</p>
+                    </div>
+
+                    <div class="bg-[#121E19] p-12 rounded-3xl border-2 border-accent flex flex-col justify-center">
+                        <p class="text-2xl text-white mb-8 font-bold uppercase tracking-widest text-accent">CẶP KHÓA RSA
+                        </p>
+                        
+                        <!-- Minh họa Cặp khóa RSA -->
+                        <div class="flex justify-center items-start gap-6 mb-8 relative">
+                            <!-- Private Key -->
+                            <div class="flex flex-col items-center relative group">
+                                <div class="w-20 h-20 bg-[#2A181C] rounded-2xl border border-rose-500/50 flex items-center justify-center shadow-[0_0_20px_rgba(244,63,94,0.3)] z-10 transition-transform group-hover:-translate-y-2">
+                                    <i class="ph-fill ph-key text-4xl text-rose-500"></i>
+                                </div>
+                                <span class="text-rose-400 font-bold text-sm mt-4 uppercase tracking-widest drop-shadow-[0_0_5px_rgba(244,63,94,0.5)]">Khóa Bí Mật</span>
+                                <span class="text-rose-500/70 text-[10px] uppercase font-mono mt-1 text-center max-w-[100px] leading-tight">(Chỉ mình giữ)</span>
+                            </div>
+                            
+                            <!-- Liên kết Toán Học -->
+                            <div class="flex flex-col items-center text-accent/50 px-2 pt-4">
+                                <i class="ph-bold ph-arrows-merge text-2xl mb-1 text-zinc-500"></i>
+                                <span class="text-[8px] font-mono text-zinc-500 uppercase max-w-[50px] leading-tight mt-1 text-center border bg-zinc-800/50 border-zinc-700/50 rounded p-1">Toán học Prime</span>
+                            </div>
+
+                            <!-- Public Key -->
+                            <div class="flex flex-col items-center relative group">
+                                <div class="w-20 h-20 bg-[#122A1F] rounded-2xl border border-accent/50 flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.3)] z-10 transition-transform group-hover:-translate-y-2">
+                                    <i class="ph-fill ph-key text-4xl text-accent"></i>
+                                </div>
+                                <span class="text-accent font-bold text-sm mt-4 uppercase tracking-widest drop-shadow-[0_0_5px_rgba(16,185,129,0.5)]">Khóa Công Khai</span>
+                                <span class="text-accent/70 text-[10px] uppercase font-mono mt-1 text-center max-w-[100px] leading-tight">(Gửi cho mọi người)</span>
+                            </div>
+                        </div>
+
+                        <p class="text-xl text-zinc-300 leading-relaxed">Thuật toán sinh ra cặp khóa có tính liên kết chặt chẽ về mặt toán học:
+                            <b>Khóa Bí Mật</b> được tác giả cất giữ để tạo chữ ký số. <b>Khóa Công Khai</b> được phát tán rộng rãi để bất kỳ ai cũng có thể tự kiểm chứng chữ ký, loại bỏ hoàn toàn nguy cơ lộ lọt khóa mã hóa.</p>
                     </div>
                 </div>
             </div>
@@ -342,41 +517,55 @@
              SLIDE 9: KÝ ĐIỆN TỬ CHI TIẾT
         =============================================== -->
         <section class="slide slide-transition" id="slide-9">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 9</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 9</div>
             <div class="content-box flex flex-col justify-center h-full max-w-[1300px] mx-auto">
                 <div class="flex justify-between items-end mb-12 opacity-0 reveal-1">
                     <div>
                         <h2 class="h2-pres mb-2">Luồng Ký Điện Tử</h2>
                         <p class="text-xl text-zinc-400">Quy trình ký số trong lõi Python</p>
                     </div>
-                    <div class="bg-zinc-900 border border-zinc-700 px-6 py-3 rounded-full text-zinc-400 italic font-mono text-lg">
+                    <div
+                        class="bg-zinc-900 border border-zinc-700 px-6 py-3 rounded-full text-zinc-400 italic font-mono text-lg">
                         Signature = Hash^d mod n
                     </div>
                 </div>
-                
+
                 <div class="grid grid-cols-4 gap-6 opacity-0 reveal-2 mb-10 items-stretch">
-                    <div class="bg-zinc-900 border border-zinc-700 p-8 rounded-3xl flex flex-col relative text-center items-center justify-center shadow-lg">
+                    <div
+                        class="bg-zinc-900 border border-zinc-700 p-8 rounded-3xl flex flex-col relative text-center items-center justify-center shadow-lg">
                         <i class="ph-fill ph-file-code text-5xl text-zinc-400 mb-4"></i>
                         <div class="text-accent font-bold text-xl mb-2">BƯỚC 1</div>
                         <p class="text-xl text-zinc-300">Đọc toàn bộ dữ liệu tệp</p>
-                        <i class="ph-bold ph-caret-right text-3xl text-zinc-600 absolute -right-5 top-1/2 -translate-y-1/2 z-10 hidden lg:block bg-zinc-950 rounded-full"></i>
+                        <i
+                            class="ph-bold ph-caret-right text-3xl text-zinc-600 absolute -right-5 top-1/2 -translate-y-1/2 z-10 hidden lg:block bg-zinc-950 rounded-full"></i>
                     </div>
-                    
-                    <div class="bg-zinc-900 border border-zinc-700 p-8 rounded-3xl flex flex-col relative text-center items-center justify-center shadow-lg">
+
+                    <div
+                        class="bg-zinc-900 border border-zinc-700 p-8 rounded-3xl flex flex-col relative text-center items-center justify-center shadow-lg">
                         <i class="ph-fill ph-hash text-5xl text-blue-400 mb-4"></i>
                         <div class="text-accent font-bold text-xl mb-2">BƯỚC 2</div>
-                        <p class="text-xl text-zinc-300">Băm bằng SHA-256 <br><span class="text-blue-400 text-lg">=&gt; Mã băm tài liệu</span></p>
-                        <i class="ph-bold ph-caret-right text-3xl text-zinc-600 absolute -right-5 top-1/2 -translate-y-1/2 z-10 hidden lg:block bg-zinc-950 rounded-full"></i>
+                        <p class="text-xl text-zinc-300">Băm bằng SHA-256 <br><span class="text-blue-400 text-lg">=&gt;
+                                Mã băm tài liệu</span></p>
+                        <i
+                            class="ph-bold ph-caret-right text-3xl text-zinc-600 absolute -right-5 top-1/2 -translate-y-1/2 z-10 hidden lg:block bg-zinc-950 rounded-full"></i>
                     </div>
-                    
-                    <div class="bg-zinc-900 border border-zinc-700 p-8 rounded-3xl flex flex-col relative text-center items-center justify-center shadow-lg">
+
+                    <div
+                        class="bg-zinc-900 border border-zinc-700 p-8 rounded-3xl flex flex-col relative text-center items-center justify-center shadow-lg">
                         <i class="ph-fill ph-lock-key text-5xl text-rose-400 mb-4"></i>
                         <div class="text-accent font-bold text-xl mb-2">BƯỚC 3</div>
-                        <p class="text-xl text-zinc-300">Dùng <span class="bg-zinc-800 px-2 py-1 rounded text-rose-400 whitespace-nowrap border border-zinc-700">khóa bí mật</span> để ký mã băm <br><span class="text-lg text-zinc-500">(PKCS#1 v1.5)</span></p>
-                        <i class="ph-bold ph-caret-right text-3xl text-zinc-600 absolute -right-5 top-1/2 -translate-y-1/2 z-10 hidden lg:block bg-zinc-950 rounded-full"></i>
+                        <p class="text-xl text-zinc-300">Dùng <span
+                                class="bg-zinc-800 px-2 py-1 rounded text-rose-400 whitespace-nowrap border border-zinc-700">khóa
+                                bí mật</span> để ký mã băm <br><span class="text-lg text-zinc-500">(PKCS#1 v1.5)</span>
+                        </p>
+                        <i
+                            class="ph-bold ph-caret-right text-3xl text-zinc-600 absolute -right-5 top-1/2 -translate-y-1/2 z-10 hidden lg:block bg-zinc-950 rounded-full"></i>
                     </div>
-                    
-                    <div class="bg-[#121E19] border border-accent p-8 rounded-3xl flex flex-col text-center items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.1)]">
+
+                    <div
+                        class="bg-[#121E19] border border-accent p-8 rounded-3xl flex flex-col text-center items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.1)]">
                         <i class="ph-fill ph-check-circle text-5xl text-accent mb-4"></i>
                         <div class="text-accent font-bold text-xl mb-2">BƯỚC 4</div>
                         <p class="text-xl text-white font-bold">Xuất chữ ký số (Base64)</p>
@@ -384,41 +573,55 @@
                 </div>
 
                 <!-- Simulated Terminal UI -->
-                <div class="w-full bg-[#0D1117] border border-zinc-700/60 rounded-2xl overflow-hidden opacity-0 reveal-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col font-mono text-sm max-w-[1000px] mx-auto mt-10">
+                <div
+                    class="w-full bg-[#0D1117] border border-zinc-700/60 rounded-2xl overflow-hidden opacity-0 reveal-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col font-mono text-sm max-w-[1000px] mx-auto mt-10">
                     <!-- Window Header -->
                     <div class="flex items-center gap-2 bg-[#161B22] px-4 py-3 border-b border-zinc-700/60">
                         <div class="w-3 h-3 rounded-full bg-rose-500"></div>
                         <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
                         <div class="w-3 h-3 rounded-full bg-accent"></div>
-                        <span class="ml-4 text-zinc-500 font-mono tracking-widest text-xs"><i class="ph-bold ph-terminal-window mr-1"></i> digital_signature_core.py</span>
+                        <span class="ml-4 text-zinc-500 font-mono tracking-widest text-xs"><i
+                                class="ph-bold ph-terminal-window mr-1"></i> digital_signature_core.py</span>
                     </div>
                     <!-- Console Body -->
-                    <div class="p-8 text-zinc-300 font-mono space-y-4 relative overflow-hidden text-left bg-gradient-to-br from-black to-[#0D1117]">
-                        <i class="ph-fill ph-shield-check absolute -right-10 -bottom-10 text-[200px] text-accent/5 pointer-events-none"></i>
-                        
+                    <div
+                        class="p-8 text-zinc-300 font-mono space-y-4 relative overflow-hidden text-left bg-gradient-to-br from-black to-[#0D1117]">
+                        <i
+                            class="ph-fill ph-shield-check absolute -right-10 -bottom-10 text-[200px] text-accent/5 pointer-events-none"></i>
+
                         <div class="flex gap-4">
-                            <span class="text-blue-400 font-bold shrink-0">~/user/app$</span> 
+                            <span class="text-blue-400 font-bold shrink-0">~/user/app$</span>
                             <span class="text-white">python sign.py --target ban_tuyen_ngon.pdf --pk private.pem</span>
                         </div>
-                        
-                        <div class="text-zinc-500 flex gap-3 items-center"><i class="ph-bold ph-check text-blue-400"></i> [1/3] Reading file 'ban_tuyen_ngon.pdf'... <span class="text-blue-400 ml-auto">OK (4.2 MB)</span></div>
-                        <div class="text-zinc-500 flex gap-3 items-center"><i class="ph-bold ph-check text-blue-400"></i> [2/3] Calculating SHA-256 Checksum...</div>
-                        
+
+                        <div class="text-zinc-500 flex gap-3 items-center"><i
+                                class="ph-bold ph-check text-blue-400"></i> [1/3] Reading file 'ban_tuyen_ngon.pdf'...
+                            <span class="text-blue-400 ml-auto">OK (4.2 MB)</span></div>
+                        <div class="text-zinc-500 flex gap-3 items-center"><i
+                                class="ph-bold ph-check text-blue-400"></i> [2/3] Calculating SHA-256 Checksum...</div>
+
                         <div class="ml-8 border-l-2 border-zinc-700 pl-4 py-1 text-blue-300 flex flex-col">
                             <span class="text-zinc-600 text-xs uppercase mb-1">Mã băm trích xuất:</span>
                             e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
                         </div>
-                        
-                        <div class="text-zinc-500 flex gap-3 items-center mt-2"><i class="ph-bold ph-spinner text-accent animate-spin"></i> [3/3] Signing with RSA-2048 PKCS#1 v1.5...</div>
-                        
-                        <div class="text-accent font-bold mt-6 flex gap-2 items-center bg-accent/10 px-4 py-2 rounded-lg border border-accent/20 w-max">
+
+                        <div class="text-zinc-500 flex gap-3 items-center mt-2"><i
+                                class="ph-bold ph-spinner text-accent animate-spin"></i> [3/3] Signing with RSA-2048
+                            PKCS#1 v1.5...</div>
+
+                        <div
+                            class="text-accent font-bold mt-6 flex gap-2 items-center bg-accent/10 px-4 py-2 rounded-lg border border-accent/20 w-max">
                             <i class="ph-fill ph-check-circle text-xl"></i> SUCCESS: Digital Signature Generated!
                         </div>
-                        
-                        <div class="bg-[#050505] p-5 border border-zinc-800 rounded-xl text-zinc-400 break-all leading-6 relative mt-4">
-                            <div class="absolute -top-3 left-4 bg-[#050505] px-2 text-[10px] text-rose-500 border border-zinc-800 rounded font-bold tracking-widest uppercase">Base64 RSA Signature Blob</div>
+
+                        <div
+                            class="bg-[#050505] p-5 border border-zinc-800 rounded-xl text-zinc-400 break-all leading-6 relative mt-4">
+                            <div
+                                class="absolute -top-3 left-4 bg-[#050505] px-2 text-[10px] text-rose-500 border border-zinc-800 rounded font-bold tracking-widest uppercase">
+                                Base64 RSA Signature Blob</div>
                             GkwH1/kS28tZ3mO9v+P/kRqwD7tJpM0aXv=tZ3mO9v+wD7tJpM0a<br>
-                            <span class="text-zinc-700">..............................<br>.... (256 Bytes Encrypted) ....<br>..............................<br></span>
+                            <span class="text-zinc-700">..............................<br>.... (256 Bytes Encrypted)
+                                ....<br>..............................<br></span>
                             KjL18zE4H9bWqB5+P2nM7tY=L18zE4H9bWqB5+P2nM7aXv=t
                         </div>
                     </div>
@@ -430,57 +633,74 @@
              SLIDE TĂNG CƯỜNG: MINH HỌA LOGIC KÝ
         =============================================== -->
         <section class="slide slide-transition" id="slide-10">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Bản Chất Thuật Toán</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Bản Chất Thuật Toán</div>
             <div class="content-box flex flex-col justify-center h-full max-w-[1300px] mx-auto">
                 <h2 class="h2-pres mb-12 opacity-0 reveal-1">Vì sao cần băm trước khi ký bằng RSA?</h2>
-                
+
                 <div class="flex flex-col md:flex-row gap-8 opacity-0 reveal-2 items-stretch h-full">
                     <!-- Nêu Vấn Đề (Pain point) -->
-                    <div class="flex-1 bg-zinc-900/80 border border-rose-500/30 p-10 rounded-3xl shadow-[0_0_20px_rgba(244,63,94,0.1)] flex flex-col relative overflow-hidden">
+                    <div
+                        class="flex-1 bg-zinc-900/80 border border-rose-500/30 p-10 rounded-3xl shadow-[0_0_20px_rgba(244,63,94,0.1)] flex flex-col relative overflow-hidden">
                         <div class="absolute -right-10 -top-10 text-rose-500/10 dark:text-rose-500/5">
                             <i class="ph-fill ph-x-circle text-[200px]"></i>
                         </div>
-                        <h4 class="text-3xl font-bold text-rose-400 mb-6 flex items-center gap-4 relative z-10"><i class="ph-bold ph-warning text-4xl"></i> Giới hạn của RSA</h4>
+                        <h4 class="text-3xl font-bold text-rose-400 mb-6 flex items-center gap-4 relative z-10"><i
+                                class="ph-bold ph-warning text-4xl"></i> Giới hạn của RSA</h4>
                         <div class="space-y-6 text-xl text-zinc-300 relative z-10">
-                            <p><b class="text-white">Chi phí tính toán:</b> RSA không phù hợp để xử lý trực tiếp toàn bộ nội dung của tệp lớn; chi phí tính toán cao hơn nhiều so với băm.</p>
-                            <p><b class="text-white">Giới hạn kích thước:</b> Với RSA-2048, dữ liệu đưa vào mỗi phép toán còn bị giới hạn bởi kích thước khóa và padding. Vì vậy, ảnh hoặc video lớn không thể đem ký trực tiếp theo kiểu "đưa cả tệp vào RSA".</p>
+                            <p><b class="text-white">Chi phí tính toán:</b> RSA không phù hợp để xử lý trực tiếp toàn bộ
+                                nội dung của tệp lớn; chi phí tính toán cao hơn nhiều so với băm.</p>
+                            <p><b class="text-white">Giới hạn kích thước:</b> Với RSA-2048, dữ liệu đưa vào mỗi phép
+                                toán còn bị giới hạn bởi kích thước khóa và padding. Vì vậy, ảnh hoặc video lớn không
+                                thể đem ký trực tiếp theo kiểu "đưa cả tệp vào RSA".</p>
                         </div>
-                        <div class="mt-8 flex items-center justify-center p-6 bg-black/40 rounded-xl border border-rose-500/20 relative z-10 flex-col gap-2 text-center">
+                        <div
+                            class="mt-8 flex items-center justify-center p-6 bg-black/40 rounded-xl border border-rose-500/20 relative z-10 flex-col gap-2 text-center">
                             <i class="ph-fill ph-file-video text-5xl text-rose-500/70"></i>
-                            <span class="text-rose-400 font-mono text-lg line-through">Đưa trực tiếp tệp 4GB vào RSA</span> <br>
-                            <span class="text-rose-300 text-sm italic">=&gt; Không phù hợp về kích thước đầu vào lẫn hiệu năng.</span>
+                            <span class="text-rose-400 font-mono text-lg line-through">Đưa trực tiếp tệp 4GB vào
+                                RSA</span> <br>
+                            <span class="text-rose-300 text-sm italic">=&gt; Không phù hợp về kích thước đầu vào lẫn
+                                hiệu năng.</span>
                         </div>
                     </div>
 
                     <!-- Vai Trò (Solution) -->
-                    <div class="flex-1 bg-[#121E19] border-2 border-accent/50 p-10 rounded-3xl shadow-[0_0_30px_rgba(16,185,129,0.15)] flex flex-col relative overflow-hidden">
-                         <div class="absolute -right-10 -top-10 text-accent/10 dark:text-accent/5">
+                    <div
+                        class="flex-1 bg-[#121E19] border-2 border-accent/50 p-10 rounded-3xl shadow-[0_0_30px_rgba(16,185,129,0.15)] flex flex-col relative overflow-hidden">
+                        <div class="absolute -right-10 -top-10 text-accent/10 dark:text-accent/5">
                             <i class="ph-fill ph-check-circle text-[200px]"></i>
                         </div>
-                        <h4 class="text-3xl font-bold text-accent mb-6 flex items-center gap-4 relative z-10"><i class="ph-bold ph-lightbulb text-4xl"></i> SHA-256 là bước rút gọn</h4>
+                        <h4 class="text-3xl font-bold text-accent mb-6 flex items-center gap-4 relative z-10"><i
+                                class="ph-bold ph-lightbulb text-4xl"></i> SHA-256 là bước rút gọn</h4>
                         <div class="space-y-6 text-xl text-zinc-300 relative z-10">
-                            <p><b class="text-white">Vai trò 1:</b> SHA-256 rút gọn mọi tệp, dù lớn hay nhỏ, thành một mã băm 256 bit (thường hiển thị bằng 64 ký tự hex).</p>
-                            <p><b class="text-white">Vai trò 2:</b> RSA chỉ cần ký trên mã băm ngắn gọn đó, nên quy trình vừa đúng chuẩn vừa khả thi về hiệu năng.</p>
+                            <p><b class="text-white">Vai trò 1:</b> SHA-256 rút gọn mọi tệp, dù lớn hay nhỏ, thành một
+                                mã băm 256 bit (thường hiển thị bằng 64 ký tự hex).</p>
+                            <p><b class="text-white">Vai trò 2:</b> RSA chỉ cần ký trên mã băm ngắn gọn đó, nên quy
+                                trình vừa đúng chuẩn vừa khả thi về hiệu năng.</p>
                         </div>
-                        
+
                         <!-- Visual Sơ Đồ Thu Nhỏ -->
-                        <div class="mt-8 flex items-center justify-between p-6 bg-black/40 rounded-xl border border-accent/20 relative z-10">
+                        <div
+                            class="mt-8 flex items-center justify-between p-6 bg-black/40 rounded-xl border border-accent/20 relative z-10">
                             <div class="flex flex-col items-center">
                                 <i class="ph-fill ph-film-strip text-4xl text-zinc-400 mb-2"></i>
                                 <span class="text-sm">Video 4GB</span>
                             </div>
                             <i class="ph-bold ph-arrow-right text-3xl text-zinc-600"></i>
-                            <div class="flex flex-col items-center bg-blue-500/20 px-3 py-2 rounded-lg border border-blue-500/30">
+                            <div
+                                class="flex flex-col items-center bg-blue-500/20 px-3 py-2 rounded-lg border border-blue-500/30">
                                 <span class="text-blue-400 text-xs font-mono font-bold">SHA-256</span>
                                 <span class="text-blue-300 text-[10px] mt-1">Rút gọn</span>
                             </div>
                             <i class="ph-bold ph-arrow-right text-3xl text-zinc-600"></i>
                             <div class="flex flex-col items-center">
                                 <i class="ph-fill ph-fingerprint text-4xl text-accent mb-2"></i>
-                                <span class="text-sm text-accent max-w-[100px] text-center leading-tight">Mã băm 64 ký tự hex</span>
+                                <span class="text-sm text-accent max-w-[100px] text-center leading-tight">Mã băm 64 ký
+                                    tự hex</span>
                             </div>
                             <i class="ph-bold ph-arrow-right text-3xl text-zinc-600"></i>
-                             <div class="flex flex-col items-center">
+                            <div class="flex flex-col items-center">
                                 <i class="ph-fill ph-stamp text-4xl text-rose-500 mb-2"></i>
                                 <span class="text-sm font-bold text-rose-400">Ký RSA</span>
                             </div>
@@ -494,39 +714,52 @@
              SLIDE 11: XÁC MINH CHI TIẾT
         =============================================== -->
         <section class="slide slide-transition" id="slide-11">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 11</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 11</div>
             <div class="content-box flex flex-col justify-center h-full max-w-[1300px] mx-auto">
                 <div class="flex justify-between items-end mb-12 opacity-0 reveal-1">
                     <div>
                         <h2 class="h2-pres mb-2 text-blue-400">Luồng Xác Minh</h2>
                         <p class="text-xl text-zinc-400">Quy trình xác minh và đối chiếu</p>
                     </div>
-                    <div class="bg-zinc-900 border border-zinc-700 px-6 py-3 rounded-full text-zinc-400 italic font-mono text-lg">
+                    <div
+                        class="bg-zinc-900 border border-zinc-700 px-6 py-3 rounded-full text-zinc-400 italic font-mono text-lg">
                         Hash_goc = Signature^e mod n
                     </div>
                 </div>
-                
+
                 <div class="grid grid-cols-2 gap-8 opacity-0 reveal-2 items-stretch mb-8">
                     <div class="bg-zinc-900 border border-zinc-700 p-8 rounded-3xl flex flex-col">
-                        <div class="text-blue-400 font-bold text-2xl mb-6 flex items-center gap-4"><span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center shrinks-0">1</span> Băm lại tệp</div>
-                        <p class="text-xl text-zinc-300 leading-relaxed mb-6">Tạo mã băm SHA-256 cho tệp cần kiểm tra.</p>
+                        <div class="text-blue-400 font-bold text-2xl mb-6 flex items-center gap-4"><span
+                                class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center shrinks-0">1</span>
+                            Băm lại tệp</div>
+                        <p class="text-xl text-zinc-300 leading-relaxed mb-6">Tạo mã băm SHA-256 cho tệp cần kiểm tra.
+                        </p>
                         <div class="mt-auto bg-black/30 p-4 rounded-xl border border-zinc-800 text-center">
                             <span class="text-blue-300 font-mono text-lg font-bold">=&gt; Mã băm hiện tại (T2)</span>
                         </div>
                     </div>
-                    
+
                     <div class="bg-zinc-900 border border-zinc-700 p-8 rounded-3xl flex flex-col">
-                        <div class="text-blue-400 font-bold text-2xl mb-6 flex items-center gap-4"><span class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center shrinks-0">2</span> Giải mã chữ ký</div>
-                        <p class="text-xl text-zinc-300 leading-relaxed mb-6">Dùng <span class="bg-zinc-800 px-2 py-1 rounded text-accent whitespace-nowrap border border-zinc-700">khóa công khai</span> giải mã tệp chữ ký đính kèm để xem tác giả đã chốt gì.</p>
+                        <div class="text-blue-400 font-bold text-2xl mb-6 flex items-center gap-4"><span
+                                class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center shrinks-0">2</span>
+                            Giải mã chữ ký</div>
+                        <p class="text-xl text-zinc-300 leading-relaxed mb-6">Dùng <span
+                                class="bg-zinc-800 px-2 py-1 rounded text-accent whitespace-nowrap border border-zinc-700">khóa
+                                công khai</span> giải mã tệp chữ ký đính kèm để xem tác giả đã chốt gì.</p>
                         <div class="mt-auto bg-black/30 p-4 rounded-xl border border-zinc-800 text-center">
                             <span class="text-accent font-mono text-lg font-bold">=&gt; Mã băm gốc (T1)</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-[#18181A] border-2 border-dashed border-zinc-500 p-6 rounded-3xl opacity-0 reveal-3 relative overflow-hidden flex flex-col w-full shadow-2xl">
-                    <div class="text-white font-bold text-2xl mb-6 flex items-center gap-4"><span class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center shrinks-0">3</span> Kết Luận Xác Minh: So sánh T1 & T2</div>
-                    
+                <div
+                    class="bg-[#18181A] border-2 border-dashed border-zinc-500 p-6 rounded-3xl opacity-0 reveal-3 relative overflow-hidden flex flex-col w-full shadow-2xl">
+                    <div class="text-white font-bold text-2xl mb-6 flex items-center gap-4"><span
+                            class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center shrinks-0">3</span>
+                        Kết Luận Xác Minh: So sánh T1 & T2</div>
+
                     <div class="grid grid-cols-2 gap-6 items-stretch">
                         <div class="bg-accent/10 border border-accent/20 p-6 rounded-2xl flex flex-col justify-center">
                             <div class="flex items-center gap-4 mb-4">
@@ -534,19 +767,25 @@
                                 <span class="text-xl font-bold text-accent uppercase">Chữ Ký Hợp Lệ (T1 = T2)</span>
                             </div>
                             <ul class="text-lg text-zinc-300 leading-relaxed space-y-2 list-disc ml-6">
-                                <li><b>Tệp còn nguyên vẹn:</b> Nội dung 100% không bị thay đổi so với bản gốc của tác giả.</li>
-                                <li><b>Xác thực người ký:</b> Khóa công khai giải mã thành công, chứng minh đúng người giữ khóa bí mật đã ký tệp.</li>
+                                <li><b>Tệp còn nguyên vẹn:</b> Nội dung 100% không bị thay đổi so với bản gốc của tác
+                                    giả.</li>
+                                <li><b>Xác thực người ký:</b> Khóa công khai giải mã thành công, chứng minh đúng người
+                                    giữ khóa bí mật đã ký tệp.</li>
                             </ul>
                         </div>
-                        
-                        <div class="bg-rose-500/10 border border-rose-500/20 p-6 rounded-2xl flex flex-col justify-center">
+
+                        <div
+                            class="bg-rose-500/10 border border-rose-500/20 p-6 rounded-2xl flex flex-col justify-center">
                             <div class="flex items-center gap-4 mb-4">
                                 <i class="ph-fill ph-warning text-4xl text-rose-500"></i>
-                                <span class="text-xl font-bold text-rose-500 uppercase">Phát Hiện Giả Mạo (T1 ≠ T2)</span>
+                                <span class="text-xl font-bold text-rose-500 uppercase">Phát Hiện Giả Mạo (T1 ≠
+                                    T2)</span>
                             </div>
                             <ul class="text-lg text-zinc-300 leading-relaxed space-y-2 list-disc ml-6">
-                                <li><b>Tệp đã bị can thiệp:</b> Nội dung bị chỉnh sửa (cắt ghép ảnh, sửa text...) khiến mã băm sinh ra bị lệch.</li>
-                                <li><b>Hoặc chữ ký là giả:</b> Không khớp với khóa công khai. Tệp không đáng tin cậy!</li>
+                                <li><b>Tệp đã bị can thiệp:</b> Nội dung bị chỉnh sửa (cắt ghép ảnh, sửa text...) khiến
+                                    mã băm sinh ra bị lệch.</li>
+                                <li><b>Hoặc chữ ký là giả:</b> Không khớp với khóa công khai. Tệp không đáng tin cậy!
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -558,44 +797,63 @@
              SLIDE TĂNG CƯỜNG: MINH HỌA LOGIC XÁC MINH
         =============================================== -->
         <section class="slide slide-transition" id="slide-12">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Bản Chất Thuật Toán</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Bản Chất Thuật Toán</div>
             <div class="content-box flex flex-col justify-center h-full max-w-[1300px] mx-auto">
                 <h2 class="h2-pres mb-12 opacity-0 reveal-1">Vì sao RSA giúp xác minh đáng tin cậy?</h2>
-                
+
                 <div class="flex flex-col md:flex-row gap-8 opacity-0 reveal-2 items-stretch h-full">
                     <!-- Nêu Vấn Đề (Pain point) -->
-                    <div class="flex-1 bg-zinc-900/80 border border-orange-500/30 p-10 rounded-3xl shadow-[0_0_20px_rgba(249,115,22,0.1)] flex flex-col relative overflow-hidden">
+                    <div
+                        class="flex-1 bg-zinc-900/80 border border-orange-500/30 p-10 rounded-3xl shadow-[0_0_20px_rgba(249,115,22,0.1)] flex flex-col relative overflow-hidden">
                         <div class="absolute -right-10 -top-10 text-orange-500/10 dark:text-orange-500/5">
                             <i class="ph-fill ph-lock-key-open text-[200px]"></i>
                         </div>
-                        <h4 class="text-3xl font-bold text-orange-400 mb-6 flex items-center gap-4 relative z-10"><i class="ph-bold ph-key text-4xl"></i> Giới hạn của hệ một khóa</h4>
+                        <h4 class="text-3xl font-bold text-orange-400 mb-6 flex items-center gap-4 relative z-10"><i
+                                class="ph-bold ph-key text-4xl"></i> Giới hạn của hệ một khóa</h4>
                         <div class="space-y-6 text-xl text-zinc-300 relative z-10">
-                            <p><b class="text-white">Nghịch lý xác minh:</b> Nếu cùng một khóa vừa dùng để tạo dấu xác nhận vừa dùng để kiểm tra, thì muốn người khác kiểm tra bạn cũng phải chia sẻ chính khóa đó.</p>
-                            <p><b class="text-white">Rủi ro giả mạo:</b> Khi khóa kiểm tra bị lộ, kẻ xấu có thể sửa nội dung rồi tạo lại dấu giả, khiến người nhận khó phân biệt thật - giả.</p>
+                            <p><b class="text-white">Nghịch lý xác minh:</b> Nếu cùng một khóa vừa dùng để tạo dấu xác
+                                nhận vừa dùng để kiểm tra, thì muốn người khác kiểm tra bạn cũng phải chia sẻ chính khóa
+                                đó.</p>
+                            <p><b class="text-white">Rủi ro giả mạo:</b> Khi khóa kiểm tra bị lộ, kẻ xấu có thể sửa nội
+                                dung rồi tạo lại dấu giả, khiến người nhận khó phân biệt thật - giả.</p>
                         </div>
                     </div>
 
                     <!-- Vai Trò (Solution) -->
-                    <div class="flex-1 bg-[#121E19] border-2 border-accent/50 p-10 rounded-3xl shadow-[0_0_30px_rgba(16,185,129,0.15)] flex flex-col relative overflow-hidden">
-                         <div class="absolute -right-10 -top-10 text-accent/10 dark:text-accent/5">
+                    <div
+                        class="flex-1 bg-[#121E19] border-2 border-accent/50 p-10 rounded-3xl shadow-[0_0_30px_rgba(16,185,129,0.15)] flex flex-col relative overflow-hidden">
+                        <div class="absolute -right-10 -top-10 text-accent/10 dark:text-accent/5">
                             <i class="ph-fill ph-scales text-[200px]"></i>
                         </div>
-                        <h4 class="text-3xl font-bold text-accent mb-6 flex items-center gap-4 relative z-10"><i class="ph-bold ph-shield-check text-4xl"></i> Cơ chế bất đối xứng</h4>
+                        <h4 class="text-3xl font-bold text-accent mb-6 flex items-center gap-4 relative z-10"><i
+                                class="ph-bold ph-shield-check text-4xl"></i> Cơ chế bất đối xứng</h4>
                         <div class="space-y-6 text-xl text-zinc-300 relative z-10">
-                            <p><b class="text-white">Nguyên lý hoạt động:</b> RSA tạo ra cặp khóa liên kết toán học: khóa bí mật dùng để ký, khóa công khai dùng để xác minh. Người kiểm tra không cần biết khóa bí mật.</p>
-                            <p><b class="text-white">Ý nghĩa bảo mật:</b> Dù có khóa công khai, kẻ xấu vẫn không thể tạo ra chữ ký hợp lệ thay cho tác giả nếu không có khóa bí mật.</p>
+                            <p><b class="text-white">Nguyên lý hoạt động:</b> RSA tạo ra cặp khóa liên kết toán học:
+                                khóa bí mật dùng để ký, khóa công khai dùng để xác minh. Người kiểm tra không cần biết
+                                khóa bí mật.</p>
+                            <p><b class="text-white">Ý nghĩa bảo mật:</b> Dù có khóa công khai, kẻ xấu vẫn không thể tạo
+                                ra chữ ký hợp lệ thay cho tác giả nếu không có khóa bí mật.</p>
                         </div>
-                        
+
                         <!-- Visual Sơ Đồ Thu Nhỏ -->
-                        <div class="mt-8 flex items-center gap-4 p-4 bg-black/40 rounded-xl border border-accent/20 relative z-10 justify-between">
+                        <div
+                            class="mt-8 flex items-center gap-4 p-4 bg-black/40 rounded-xl border border-accent/20 relative z-10 justify-between">
                             <div class="flex items-center gap-3">
-                                <i class="ph-fill ph-key text-4xl text-rose-500 drop-shadow-[0_0_10px_rgba(244,63,94,0.5)]"></i>
-                                <span class="text-rose-400 font-bold text-sm">Chỉ dùng để KÝ<br><span class="text-rose-500/70 text-xs italic font-normal">(Giữ bí mật tuyệt đối)</span></span>
+                                <i
+                                    class="ph-fill ph-key text-4xl text-rose-500 drop-shadow-[0_0_10px_rgba(244,63,94,0.5)]"></i>
+                                <span class="text-rose-400 font-bold text-sm">Chỉ dùng để KÝ<br><span
+                                        class="text-rose-500/70 text-xs italic font-normal">(Giữ bí mật tuyệt
+                                        đối)</span></span>
                             </div>
                             <div class="w-px h-12 bg-zinc-700"></div>
                             <div class="flex items-center gap-3 text-right">
-                                <span class="text-blue-400 font-bold text-sm">Chỉ dùng để XÁC MINH<br><span class="text-blue-500/70 text-xs italic font-normal">(Có thể công bố rộng rãi)</span></span>
-                                <i class="ph-fill ph-key text-4xl text-blue-400 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"></i>
+                                <span class="text-blue-400 font-bold text-sm">Chỉ dùng để XÁC MINH<br><span
+                                        class="text-blue-500/70 text-xs italic font-normal">(Có thể công bố rộng
+                                        rãi)</span></span>
+                                <i
+                                    class="ph-fill ph-key text-4xl text-blue-400 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"></i>
                             </div>
                         </div>
                     </div>
@@ -607,30 +865,38 @@
              SLIDE 13: DEMO SẢN PHẨM THỰC TẾ
         =============================================== -->
         <section class="slide slide-transition" id="slide-13">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 13</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 13</div>
             <div class="content-box flex flex-col justify-center h-full max-w-[1300px] mx-auto text-center">
                 <h2 class="h1-pres mb-12 opacity-0 reveal-1 text-accent">Trình diễn Sản phẩm / Demo Time</h2>
-                <p class="text-2xl text-zinc-400 opacity-0 reveal-2 mb-12">Kiến trúc: lõi Python (backend) <i class="ph-bold ph-arrows-left-right text-accent mx-2"></i> HTTP API cục bộ <i class="ph-bold ph-arrows-left-right text-accent mx-2"></i> giao diện HTML / Tailwind</p>
-                
+                <p class="text-2xl text-zinc-400 opacity-0 reveal-2 mb-12">Kiến trúc: lõi Python (backend) <i
+                        class="ph-bold ph-arrows-left-right text-accent mx-2"></i> HTTP API cục bộ <i
+                        class="ph-bold ph-arrows-left-right text-accent mx-2"></i> giao diện HTML / Tailwind</p>
+
                 <div class="grid grid-cols-3 gap-8 opacity-0 reveal-3 items-stretch">
-                    <div class="bg-zinc-900 border border-zinc-600 p-10 rounded-2xl flex flex-col shadow-lg justify-center">
+                    <div
+                        class="bg-zinc-900 border border-zinc-600 p-10 rounded-2xl flex flex-col shadow-lg justify-center">
                         <i class="ph-fill ph-key text-5xl text-white mb-6 mx-auto"></i>
                         <h4 class="font-bold text-2xl text-white mb-4">1. Tạo cặp khóa</h4>
                         <p class="text-zinc-400 text-lg">Sinh ngẫu nhiên cặp khóa RSA-2048 ở định dạng PEM.</p>
                     </div>
-                    <div class="bg-zinc-900 border border-zinc-600 p-10 rounded-2xl flex flex-col shadow-lg justify-center">
+                    <div
+                        class="bg-zinc-900 border border-zinc-600 p-10 rounded-2xl flex flex-col shadow-lg justify-center">
                         <i class="ph-fill ph-pen-nib text-5xl text-white mb-6 mx-auto"></i>
                         <h4 class="font-bold text-2xl text-white mb-4">2. Ký số dữ liệu</h4>
                         <p class="text-zinc-400 text-lg">Băm nội dung và tạo chữ ký số.</p>
                     </div>
-                    <div class="bg-[#2A181C] border border-rose-500/50 p-10 rounded-2xl flex flex-col shadow-[0_0_20px_rgba(244,63,94,0.1)] justify-center">
+                    <div
+                        class="bg-[#2A181C] border border-rose-500/50 p-10 rounded-2xl flex flex-col shadow-[0_0_20px_rgba(244,63,94,0.1)] justify-center">
                         <i class="ph-fill ph-bug text-5xl text-rose-500 mb-6 mx-auto"></i>
                         <h4 class="font-bold text-2xl text-rose-200 mb-4">3. Giả lập chỉnh sửa</h4>
                         <p class="text-rose-400/80 text-lg">Sửa nội dung và kiểm tra khả năng phát hiện.</p>
                     </div>
                 </div>
 
-                <div class="mt-16 w-full h-[350px] bg-zinc-950 border border-accent/20 rounded-3xl opacity-0 reveal-4 flex items-center justify-center font-mono text-zinc-600 text-2xl">
+                <div
+                    class="mt-16 w-full h-[350px] bg-zinc-950 border border-accent/20 rounded-3xl opacity-0 reveal-4 flex items-center justify-center font-mono text-zinc-600 text-2xl">
                     <i class="ph-bold ph-browser text-4xl mr-4"></i> [Khu vực chuyển sang chạy thử ứng dụng localhost]
                 </div>
             </div>
@@ -640,65 +906,86 @@
              SLIDE 14: ĐÁNH GIÁ (ƯU NHƯỢC)
         =============================================== -->
         <section class="slide slide-transition" id="slide-14">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 14</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 14</div>
             <div class="content-box flex flex-col justify-center h-full max-w-[1300px] mx-auto text-center">
                 <i class="ph-fill ph-scales text-7xl text-purple-400 mb-8 opacity-0 reveal-1"></i>
                 <h2 class="h1-pres mb-12 opacity-0 reveal-2">Đánh giá nghiệm thu</h2>
-                
+
                 <div class="grid grid-cols-2 gap-10 opacity-0 reveal-3 text-left items-stretch">
                     <div class="bg-white/5 border border-white/10 p-12 rounded-3xl flex flex-col justify-center">
-                        <h4 class="text-3xl font-bold text-accent mb-8 flex items-center gap-4"><i class="ph-bold ph-star text-accent"></i> Điểm mạnh</h4>
+                        <h4 class="text-3xl font-bold text-accent mb-8 flex items-center gap-4"><i
+                                class="ph-bold ph-star text-accent"></i> Điểm mạnh</h4>
                         <p class="text-xl text-zinc-300 leading-relaxed">
-                            Nhóm không dừng ở lý thuyết mà đã tự triển khai luồng băm, ký và xác minh bằng RSA/SHA-256 với PKCS#1 v1.5.<br><br>
-                            Giao diện trực quan giúp người xem theo dõi được quy trình xử lý thay vì chỉ quan sát kết quả trên terminal.
+                            Nhóm không dừng ở lý thuyết mà đã tự triển khai luồng băm, ký và xác minh bằng RSA/SHA-256
+                            với PKCS#1 v1.5.<br><br>
+                            Giao diện trực quan giúp người xem theo dõi được quy trình xử lý thay vì chỉ quan sát kết
+                            quả trên terminal.
                         </p>
                     </div>
                     <div class="bg-zinc-900/50 border border-zinc-700/50 p-12 rounded-3xl flex flex-col justify-center">
-                        <h4 class="text-3xl font-bold text-zinc-400 mb-8 flex items-center gap-4"><i class="ph-bold ph-minus-circle text-zinc-500"></i> Hạn chế</h4>
+                        <h4 class="text-3xl font-bold text-zinc-400 mb-8 flex items-center gap-4"><i
+                                class="ph-bold ph-minus-circle text-zinc-500"></i> Hạn chế</h4>
                         <p class="text-xl text-zinc-500 leading-relaxed">
-                            Chữ ký số hiện vẫn được lưu tách rời khỏi tệp gốc, nên chưa thật sự thuận tiện khi chia sẻ và lưu trữ.<br><br>Hệ thống hiện phù hợp cho mục tiêu minh họa và demo; để dùng ở quy mô lớn cần tối ưu thêm phần quản lý khóa, nhúng chữ ký và xử lý tệp lớn.
+                            Chữ ký số hiện vẫn được lưu tách rời khỏi tệp gốc, nên chưa thật sự thuận tiện khi chia sẻ
+                            và lưu trữ.<br><br>Hệ thống hiện phù hợp cho mục tiêu minh họa và demo; để dùng ở quy mô lớn
+                            cần tối ưu thêm phần quản lý khóa, nhúng chữ ký và xử lý tệp lớn.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-         <!-- ==============================================
+        <!-- ==============================================
              SLIDE 15: ĐỊNH HƯỚNG TƯƠNG LAI
         =============================================== -->
         <section class="slide slide-transition" id="slide-15">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 15</div>
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 15</div>
             <div class="content-box flex flex-col justify-center h-full max-w-[1200px] mx-auto">
-                <h2 class="h2-pres mb-12 opacity-0 reveal-1 border-b-2 border-white/10 pb-8 text-center">Định hướng phát triển</h2>
-                
+                <h2 class="h2-pres mb-12 opacity-0 reveal-1 border-b-2 border-white/10 pb-8 text-center">Định hướng phát
+                    triển</h2>
+
                 <div class="space-y-8 opacity-0 reveal-2">
-                    <div class="flex items-center gap-8 p-8 bg-zinc-900 rounded-3xl hover:bg-zinc-800 transition-colors">
-                        <div class="w-20 h-20 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center shrinks-0">
+                    <div
+                        class="flex items-center gap-8 p-8 bg-zinc-900 rounded-3xl hover:bg-zinc-800 transition-colors">
+                        <div
+                            class="w-20 h-20 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center shrinks-0">
                             <i class="ph-bold ph-file-zip text-4xl"></i>
                         </div>
                         <div>
                             <h4 class="text-3xl font-bold text-white mb-2">Nhúng chữ ký vào siêu dữ liệu</h4>
-                            <p class="text-xl text-zinc-400">Nhúng chữ ký số vào metadata như EXIF hoặc phần siêu dữ liệu của PDF, để chỉ cần phân phối một tệp duy nhất.</p>
+                            <p class="text-xl text-zinc-400">Nhúng chữ ký số vào metadata như EXIF hoặc phần siêu dữ
+                                liệu của PDF, để chỉ cần phân phối một tệp duy nhất.</p>
                         </div>
                     </div>
-                    
-                    <div class="flex items-center gap-8 p-8 bg-zinc-900 rounded-3xl hover:bg-zinc-800 transition-colors">
-                        <div class="w-20 h-20 bg-purple-500/20 text-purple-400 rounded-2xl flex items-center justify-center shrinks-0">
+
+                    <div
+                        class="flex items-center gap-8 p-8 bg-zinc-900 rounded-3xl hover:bg-zinc-800 transition-colors">
+                        <div
+                            class="w-20 h-20 bg-purple-500/20 text-purple-400 rounded-2xl flex items-center justify-center shrinks-0">
                             <i class="ph-bold ph-drop text-4xl"></i>
                         </div>
                         <div>
                             <h4 class="text-3xl font-bold text-white mb-2">Kết hợp thủy vân số</h4>
-                            <p class="text-xl text-zinc-400">Ẩn thông tin nhận dạng vào dữ liệu ảnh để tăng khả năng truy vết khi tệp bị cắt xén, chụp lại hoặc phát tán lại.</p>
+                            <p class="text-xl text-zinc-400">Ẩn thông tin nhận dạng vào dữ liệu ảnh để tăng khả năng
+                                truy vết khi tệp bị cắt xén, chụp lại hoặc phát tán lại.</p>
                         </div>
                     </div>
-                    
-                    <div class="flex items-center gap-8 p-8 bg-zinc-900 rounded-3xl hover:bg-zinc-800 transition-colors">
-                        <div class="w-20 h-20 bg-accent/20 text-accent rounded-2xl flex items-center justify-center shrinks-0">
+
+                    <div
+                        class="flex items-center gap-8 p-8 bg-zinc-900 rounded-3xl hover:bg-zinc-800 transition-colors">
+                        <div
+                            class="w-20 h-20 bg-accent/20 text-accent rounded-2xl flex items-center justify-center shrinks-0">
                             <i class="ph-bold ph-hexagon text-4xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-3xl font-bold text-white mb-2">Công bố khóa công khai trên hạ tầng tin cậy</h4>
-                            <p class="text-xl text-zinc-400">Đưa public key lên hệ thống định danh tin cậy hoặc sổ cái phân tán, giảm phụ thuộc vào trang cá nhân và hạn chế nguy cơ bị giả mạo.</p>
+                            <h4 class="text-3xl font-bold text-white mb-2">Công bố khóa công khai trên hạ tầng tin cậy
+                            </h4>
+                            <p class="text-xl text-zinc-400">Đưa public key lên hệ thống định danh tin cậy hoặc sổ cái
+                                phân tán, giảm phụ thuộc vào trang cá nhân và hạn chế nguy cơ bị giả mạo.</p>
                         </div>
                     </div>
                 </div>
@@ -710,23 +997,31 @@
         <!-- ==============================================
              SLIDE 16: KẾT THÚC Q&A
         =============================================== -->
-         <section class="slide slide-transition" id="slide-16">
-            <div class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">Slide 16</div>
+        <section class="slide slide-transition" id="slide-16">
+            <div
+                class="absolute top-8 right-12 font-mono text-xl text-zinc-500 font-bold z-50 tracking-widest border border-zinc-800 bg-zinc-900/40 px-4 py-2 rounded-full backdrop-blur-sm pointer-events-none">
+                Slide 16</div>
             <div class="content-box flex flex-col items-center justify-center h-full text-center">
                 <i class="ph-bold ph-check text-7xl text-accent mb-8 opacity-0 reveal-1"></i>
-                <h1 class="text-6xl md:text-8xl font-bold text-white mb-10 opacity-0 reveal-2 tracking-tight">Cảm ơn hội đồng</h1>
-                
+                <h1 class="text-6xl md:text-8xl font-bold text-white mb-10 opacity-0 reveal-2 tracking-tight">Cảm ơn
+                </h1>
+
                 <div class="w-32 h-1 bg-white/20 mx-auto mb-12 opacity-0 reveal-2"></div>
-                
-                <div class="opacity-0 reveal-3 bg-zinc-900 border border-zinc-700 p-10 rounded-3xl max-w-[900px] w-full text-left mb-16">
-                     <h4 class="font-bold text-white font-mono uppercase tracking-widest mb-6 flex items-center gap-3 text-2xl"><i class="ph-bold ph-books"></i> Tài liệu tham khảo:</h4>
-                     <ul class="text-zinc-400 space-y-4 ml-8 list-disc text-xl">
-                         <li>PKCS #1: RSA Cryptography Specifications (IETF RFC 8017).</li>
-                         <li>Tài liệu thư viện Python <code>cryptography</code> tại <code>cryptography.io</code>.</li>
-                     </ul>
+
+                <div
+                    class="opacity-0 reveal-3 bg-zinc-900 border border-zinc-700 p-10 rounded-3xl max-w-[900px] w-full text-left mb-16">
+                    <h4
+                        class="font-bold text-white font-mono uppercase tracking-widest mb-6 flex items-center gap-3 text-2xl">
+                        <i class="ph-bold ph-books"></i> Tài liệu tham khảo:</h4>
+                    <ul class="text-zinc-400 space-y-4 ml-8 list-disc text-xl">
+                        <li>PKCS #1: RSA Cryptography Specifications (IETF RFC 8017).</li>
+                        <li>Tài liệu thư viện Python <code>cryptography</code> tại <code>cryptography.io</code>.</li>
+                    </ul>
                 </div>
-                
-                <h3 class="text-4xl text-accent uppercase font-mono font-bold opacity-0 reveal-4 border-2 border-accent px-10 py-5 rounded-full inline-block">Q&A / Hỏi đáp</h3>
+
+                <h3
+                    class="text-4xl text-accent uppercase font-mono font-bold opacity-0 reveal-4 border-2 border-accent px-10 py-5 rounded-full inline-block">
+                    Q&A / Hỏi đáp</h3>
             </div>
         </section>
 
@@ -736,37 +1031,40 @@
             <button class="nav-btn group" onclick="window.nextSlide(-1)">
                 <i class="ph-bold ph-caret-left group-hover:-translate-x-1 transition-transform"></i>
             </button>
-            <button class="nav-btn bg-white/10 text-white hover:bg-white hover:text-black group" onclick="window.nextSlide(1)">
+            <button class="nav-btn bg-white/10 text-white hover:bg-white hover:text-black group"
+                onclick="window.nextSlide(1)">
                 <i class="ph-bold ph-caret-right group-hover:translate-x-1 transition-transform"></i>
             </button>
         </div>
 
-        <div class="absolute bottom-6 left-12 font-mono text-xl text-zinc-600 font-bold z-50 tracking-widest mix-blend-difference" id="indicator">00/00</div>
+        <div class="absolute bottom-6 left-12 font-mono text-xl text-zinc-600 font-bold z-50 tracking-widest mix-blend-difference"
+            id="indicator">00/00</div>
     </div>
 
     <!-- Script update progress bar highlight the same way as batch 1 -->
     <script>
         // A minimal logic to switch progress bar active states if needed
         document.addEventListener("SlideChanged", (e) => {
-           let idx = e.detail.currentIndex; // 0-14
-           
-           let p1 = document.querySelector("#progress-bar > div:nth-child(1)");
-           let p2 = document.querySelector("#progress-bar > div:nth-child(3)");
-           let p3 = document.querySelector("#progress-bar > div:nth-child(5)");
-           let p4 = document.querySelector("#progress-bar > div:nth-child(7)");
+            let idx = e.detail.currentIndex; // 0-14
 
-           // reset classes
-           [p1,p2,p3,p4].forEach(p => {
-               p.className = "flex items-center gap-4 text-zinc-500 line-through decoration-zinc-800 opacity-50 transition-all duration-500";
-           });
+            let p1 = document.querySelector("#progress-bar > div:nth-child(1)");
+            let p2 = document.querySelector("#progress-bar > div:nth-child(3)");
+            let p3 = document.querySelector("#progress-bar > div:nth-child(5)");
+            let p4 = document.querySelector("#progress-bar > div:nth-child(7)");
 
-           let activeClass = "flex items-center gap-4 text-accent font-bold transition-all duration-500";
+            // reset classes
+            [p1, p2, p3, p4].forEach(p => {
+                p.className = "flex items-center gap-4 text-zinc-500 line-through decoration-zinc-800 opacity-50 transition-all duration-500";
+            });
 
-           if(idx <= 4) { p1.className = activeClass; }
-           else if(idx <= 8) { p2.className = activeClass; p1.className="flex items-center gap-4 text-zinc-400 opacity-70 transition-all duration-500";}
-           else if(idx <= 13) { p3.className = activeClass; p2.className="flex items-center gap-4 text-zinc-400 opacity-70 transition-all duration-500"; p1.className="flex items-center gap-4 text-zinc-600 opacity-30 transition-all duration-500";}
-           else { p4.className = activeClass; p3.className="flex items-center gap-4 text-zinc-400 opacity-70 transition-all duration-500"; p2.className="flex items-center gap-4 text-zinc-600 opacity-30 transition-all duration-500"; p1.className="flex items-center gap-4 text-zinc-600 opacity-30 transition-all duration-500";}
+            let activeClass = "flex items-center gap-4 text-accent font-bold transition-all duration-500";
+
+            if (idx <= 4) { p1.className = activeClass; }
+            else if (idx <= 8) { p2.className = activeClass; p1.className = "flex items-center gap-4 text-zinc-400 opacity-70 transition-all duration-500"; }
+            else if (idx <= 13) { p3.className = activeClass; p2.className = "flex items-center gap-4 text-zinc-400 opacity-70 transition-all duration-500"; p1.className = "flex items-center gap-4 text-zinc-600 opacity-30 transition-all duration-500"; }
+            else { p4.className = activeClass; p3.className = "flex items-center gap-4 text-zinc-400 opacity-70 transition-all duration-500"; p2.className = "flex items-center gap-4 text-zinc-600 opacity-30 transition-all duration-500"; p1.className = "flex items-center gap-4 text-zinc-600 opacity-30 transition-all duration-500"; }
         });
     </script>
 </body>
+
 </html>
